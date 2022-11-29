@@ -12,6 +12,7 @@ import {GestionContratRoutingModule} from './gestion-contrat-routing.module';
   imports: [
     CommonModule,
     GestionContratRoutingModule
-  ]
+  ],
+  exports:[ListContratComponent]
 })
 export class GestionContratModule { }
