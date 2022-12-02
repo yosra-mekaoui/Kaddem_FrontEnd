@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -9,7 +12,9 @@
                     <a href="https://datatables.net/">Datatables</a>
                     <br>
 
-                    <a type="button" routerLink="add" class="btn btn-success" data-toggle="modal" data-target="#bs-example-modal-sm">Ajouter Etudiant</a>
+                    <a type="button" routerLink="add" class="btn btn-success" data-toggle="modal" data-target="#bs-example-modal-sm">
+                        <i class="fa fa-plus" style="font-size:16px"></i>&nbsp; Ajouter Etudiant
+                    </a>
                      
                 </h6>
                 <div class="table-responsive">
@@ -28,8 +33,12 @@
                                 <td>{{u.nom}}</td>
                                 <td>{{u.option}}</td>
                                 <td>
-                                    <button type="button" style="margin-right: 20px;" (click)="deleteEtudiant(u.idEtudiant)" class="btn btn-danger" data-toggle="modal" data-target="#danger-alert-modal">Delete</button>
-                                    <a  [routerLink]="['edit', u.idEtudiant]" class="btn waves-effect waves-light btn-warning">Edit</a>
+                                    <button type="button" style="margin-right: 20px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;" (click)="deleteEtudiant(u.idEtudiant)" class="btn btn-danger" data-toggle="modal" data-target="#danger-alert-modal">
+                                        <i class="fa fa-trash-o" style="font-size:18px"></i>  Delete
+                                    </button>
+                                    <button style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"  [routerLink]="['edit', u.idEtudiant]" class="btn waves-effect waves-light btn-warning">
+                                        <i class="fa fa-edit" style="font-size:18px"></i> Edit
+                                    </button>
                                      
                                 </td> 
                             </tr> 
