@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { GestionEtudiantModule } from './gestion-etudiant/gestion-etudiant.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GestionEtudiantModule } from './gestion-etudiant/gestion-etudiant.modul
     BrowserModule,
     AppRoutingModule,
     GestionEtudiantModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

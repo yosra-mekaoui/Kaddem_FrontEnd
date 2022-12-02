@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListEtudiantsComponent } from './list-etudiants/list-etudiants.component';
 import { RouterModule } from '@angular/router';
+import { GestionEtudiantRoutingModule } from './gestion-etudiant-routing.module';
 
 
 
@@ -11,7 +12,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    GestionEtudiantRoutingModule
   ],
   exports: [
     ListEtudiantsComponent
