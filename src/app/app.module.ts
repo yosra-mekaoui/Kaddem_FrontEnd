@@ -9,6 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { GestionEtudiantModule } from './gestion-etudiant/gestion-etudiant.module';
 import { GestionContratModule } from './gestion-contrat/gestion-contrat.module';
+import {HttpClientModule} from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,13 +19,16 @@ import { GestionContratModule } from './gestion-contrat/gestion-contrat.module';
     FooterComponent,
 
 
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     GestionEtudiantModule,
     GestionContratModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

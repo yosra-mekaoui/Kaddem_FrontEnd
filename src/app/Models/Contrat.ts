@@ -1,8 +1,8 @@
 export class Contrat{
-  idContrat!: number;
-  dateDebutContrat!: Date;
-  dateFinContrat!: Date;
-  archive!: boolean;
-  montantContrat!: number;
+ public idContrat!: number;
+  public dateDebutContrat!: Date;
+  public dateFinContrat!: Date;
+  public archive!: boolean;
+  public montantContrat!: number;
 
 }
