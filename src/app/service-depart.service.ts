@@ -31,9 +31,9 @@ AddDepart(Departement: Departement):Observable<Departement>{
  return this.http.post<Departement>(this.urlAdd,Departement)
 }
 UpdateDepart(id:number, d: Departement){
- // const id = Number(d.idDepart);
  
- return this.http.put(this.urlUpdate+id,d);
+ 
+ return this.http.put(this.urlUpdate+''+id,d);
 }
 getDepartById(id:Number){
   return this.http.get<Departement>(this.urlGetId+id);
