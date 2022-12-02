@@ -1,0 +1,46 @@
+{
+  "ListEquipe": [
+    {
+      "name": "est",
+      "niveau": "JUNIOR",
+      "nombreMax": 11,
+      "email": "yassine.dhane@neopolis-dev.com",
+      "logo": "est.jpg",
+      "id": 1
+    },
+    {
+      "name": "qs",
+      "niveau": "JUNIOR",
+      "nombreMax": 11,
+      "email": "yassine.dhane@neopolis-dev.com",
+      "logo": "dswx",
+      "id": 2
+    },
+    {
+      "name": "Yassine Dhane",
+      "niveau": "JUNIOR",
+      "nombreMax": 32,
+      "email": "admin@gmail.com",
+      "logo": "xwc",
+      "id": 3
+    },
+    {
+      "name": "ali",
+      "niveau": "JUNIOR",
+      "nombreMax": 11,
+      "email": "yassine.dhane@neopolis-dev.com",
+      "logo": "data.jpg",
+      "id": 7
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

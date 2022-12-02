@@ -1,0 +1,79 @@
+
+
+<h1 mat-dialog-title>Ajouter une Equipe</h1>
+
+<div mat-dialog-content>
+
+    <form [formGroup]="equipeForm">
+
+        
+
+    <mat-form-field appearance="outline">
+        <mat-label>Nom equipe</mat-label>
+        <input   formControlName="name"   matInput placeholder="Nom" />
+    </mat-form-field>
+    <label id="example-radio-group-label">Niveau</label>
+
+    <mat-radio-group  formControlName="niveau"
+     aria-labelledby="example-radio-group-label"   class="example-radio-group" >
+
+        <mat-radio-button class="example-radio-button" *ngFor="let niveau of ListNveau" [value]="niveau" >
+          {{niveau | lowercase}}
+        </mat-radio-button>
+    </mat-radio-group>
+
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre maximum des membres</mat-label>
+        <input type="number"    formControlName="nombreMax" matInput  placeholder="Nombre maximum" >
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>Email equipe</mat-label>
+        <input  formControlName="email" matInput placeholder="pat@example.com">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Logo equipe</mat-label>
+        <input  formControlName="logo"  matInput placeholder="Logo" >
+    </mat-form-field>
+
+
+
+     <div mat-dialog-actions [align]="'end'">
+
+        <button style="margin-right: 5px;" mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+
+        <button mat-raised-button color="primary" (click)="addEquipe()">{{actionButton}}</button>
+  
+
+     </div>
+
+
+
+
+
+
+
+
+    </form>
+
+
+
+    
+
+
+
+   
+  
+</div>
+
+
+
+ 
+
+
+
+
+
