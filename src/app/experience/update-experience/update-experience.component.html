@@ -1,0 +1,64 @@
+
+<form [formGroup]="reactiveForm">
+
+    <div class="card-body">
+        <h4 class="card-title">titreDuProfil</h4>
+        <div class="mt-4">
+            <div class="form-group">
+                <input type="text"formControlName="titreDuProfil" class="form-control" name="titreDuProfil"  id="titreDuProfil">
+            </div>
+            <div class="alter alter-danger" *ngIf="titreDuProfil?.errors?.['required'] && titreDuProfil?.touched"> titreDuProfil is required</div>
+    
+        </div >
+
+        <h4 class="card-title">type</h4>
+        <div class="mt-4">
+            <div class="form-group">
+                <input type="text"formControlName="type" class="form-control" name="type"  id="type">
+            </div>
+            <div class="alter alter-danger" *ngIf="type?.errors?.['required'] && type?.touched"> type is required</div>
+    
+        </div >
+
+        <h4 class="card-title">dateDebutExperience</h4>
+        <div class="mt-4">
+            <div class="form-group">
+                <input type="text"formControlName="dateDebutExperience" class="form-control" name="dateDebutExperience"  id="dateDebutExperience">
+            </div>
+            <div class="alter alter-danger" *ngIf="dateDebutExperience?.errors?.['required'] && dateDebutExperience?.touched"> dateDebutExperience is required</div>
+    
+        </div >
+
+        <h4 class="card-title">dateFinExperience</h4>
+        <div class="mt-4">
+            <div class="form-group">
+                <input type="text"formControlName="dateFinExperience" class="form-control" name="dateFinExperience"  id="dateFinExperience">
+            </div>
+            <div class="alter alter-danger" *ngIf="dateFinExperience?.errors?.['required'] && dateFinExperience?.touched"> dateFinExperience is required</div>
+    
+        </div >
+
+
+        <h4 class="card-title">descriptif</h4>
+        <div class="mt-4">
+            <div class="form-group">
+                <input type="text"formControlName="descriptif" class="form-control" name="descriptif"  id="descriptif">
+            </div>
+            <div class="alter alter-danger" *ngIf="descriptif?.errors?.['required'] && descriptif?.touched"> descriptif is required</div>
+    
+        </div >
+
+
+        <h4 class="card-title">lieu</h4>
+        <div class="mt-4">
+            <div class="form-group">
+                <input type="text"formControlName="lieu" class="form-control" name="lieu"  id="lieu">
+            </div>
+            <div class="alter alter-danger" *ngIf="lieu?.errors?.['required'] && lieu?.touched"> lieu is required</div>
+    
+        </div >
+
+
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="update()">update</button>
+    </form>
