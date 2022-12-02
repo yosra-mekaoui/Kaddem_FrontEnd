@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-7 align-self-center">
+        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Basic Initialisation</h4>
+        <div class="d-flex align-items-center">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb m-0 p-0">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
+                    <li class="breadcrumb-item text-muted active" aria-current="page">Library</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="col-5 align-self-center">
+        <div class="customize-input float-right">
+            <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                <option selected="">Aug 19</option>
+                <option value="1">July 19</option>
+                <option value="2">Jun 19</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+               
+                <div class="table-responsive">
+                    <div id="default_order_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="default_order_length"><label>Show <select name="default_order_length" aria-controls="default_order" class="form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="default_order_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="default_order"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="default_order" class="table table-striped table-bordered display no-wrap dataTable" style="width: 100%;" role="grid" aria-describedby="default_order_info">
+                        <div class="model fade" id="addExperience" tabindex="-1" role="dialog" aria-labelledby="addExperienceLabel" aria-hidden="true"></div>
+
+                        <thead>
+                            <tr role="row"><th class="sorting" tabindex="0" aria-controls="default_order" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 128px;"> Id Experience </th>
+                                
+                                <th class="sorting" tabindex="0" aria-controls="default_order" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 192px;">type </th>
+                                <th class="sorting" tabindex="0" aria-controls="default_order" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 192px;">TitreDuProfil </th>
+
+                                <th class="sorting" tabindex="0" aria-controls="default_order" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 192px;">dateDebutExperience </th>
+
+                                <th class="sorting" tabindex="0" aria-controls="default_order" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 192px;">dateFinExperience </th>
+
+                                <th class="sorting" tabindex="0" aria-controls="default_order" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 192px;">descriptif </th>
+
+                                <th class="sorting" tabindex="0" aria-controls="default_order" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 192px;">lieu </th>
+
+                                <th class="sorting" tabindex="0" aria-controls="default_order" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 128px;">Action </th>
+                                
+                        </thead>
+                        <tbody>
+                          
+                            <tr *ngFor="let l of list" >
+
+                                <td>{{l.idExperience}}</td>
+                                <td>{{l.type}}</td>
+                                <td>{{l.titreDuProfil}}</td>
+                                <td>{{l.dateDebutExperience}}</td>
+                                <td>{{l.dateFinExperience}}</td>
+                                <td>{{l.descriptif}}</td>
+                                
+                                <td>{{l.lieu}}</td>
+                         
+                                <td><button (click) = "deleteexperience(l.idExperience)"> delete</button> </td>
+                  
+                              </tr> </tbody>
+                       
+                    </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="default_order_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="default_order_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="default_order_previous"><a href="#" aria-controls="default_order" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="default_order" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="default_order" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="default_order" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="default_order" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="default_order" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="#" aria-controls="default_order" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="default_order_next"><a href="#" aria-controls="default_order" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
