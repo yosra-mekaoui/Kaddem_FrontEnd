@@ -1,0 +1,27 @@
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h1>Update Contrat</h1>
+        <form  [formGroup]="reactiveForm"  (ngSubmit)="onSubmit()" class="mt-4">
+
+          <div class="form-group">
+            <input type="date" class="form-control" value="2008-05-13"  name="dateDebutContrat" [(ngModel)]="c.dateDebutContrat">
+          </div>
+          <div class="form-group">
+            <input type="date" class="form-control" name="dateFinContrat" value="2008-05-13" [(ngModel)]="c.dateFinContrat">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control"  name="archive" [(ngModel)]="c.archive">
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control"
+                   [(ngModel)]="c.montantContrat" name="montantContrat">
+          </div>
+          <button type="submit" ><mat-icon>save</mat-icon></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
