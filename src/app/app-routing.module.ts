@@ -7,6 +7,10 @@ const routes: Routes = [
 {
   path:'listDepar',
   loadChildren:() =>import('./gestion-departement/gestion-departement.module').then(m=>m.GestionDepartementModule)
+},
+{
+  path:'listUniv',
+  loadChildren:() =>import('./gestion-universite/gestion-universite.module').then(e=>e.GestionUniversiteModule)
 }
 ];
 
