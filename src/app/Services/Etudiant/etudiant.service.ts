@@ -22,4 +22,15 @@ export class EtudiantService {
     return this.http.delete<[Etudiant]>(this.url+"remove/"+id);
   }
 
+  addEtudiant(e : Etudiant) : Observable<Etudiant[]>{
+    return this.http.post<[Etudiant]>(this.url+"add",e);
+  } 
+
+  getEtudiantById(id:number) : Observable<Etudiant>{
+    return this.http.get<Etudiant>(this.url+"get/"+id);
+  }
+
+  updateEtudiant(e : Etudiant){
+    return this.http.put<Etudiant>(this.url+"update",e);
+  }
 }

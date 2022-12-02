@@ -1,0 +1,35 @@
+<h2>Modifier Etudiant</h2>
+<form [formGroup]="etudiantForm">
+
+    <label for="first-name">Prenom : </label>
+    <input id="first-name" type="text" formControlName="prenom">
+
+    <small class="text-danger"
+        *ngIf="etudiantForm.get('prenom')?.hasError('required') && etudiantForm.get('prenom')?.touched==true ">
+        Le prénom ne peut pas être vide.
+    </small>
+    <br>
+
+    <label for="last-name">Nom : </label>
+    <input id="last-name" type="text" formControlName="nom">
+    <small class="text-danger"
+        *ngIf="etudiantForm.get('nom')?.hasError('required') && etudiantForm.get('nom')?.touched==true">
+        Le nom ne peut pas être vide.
+    </small>
+    <br>
+
+    <label for="last-name">Option : </label>
+    <select formControlName="option">
+        <option selected>GAMIX</option>
+        <option>SE</option>
+        <option>SIM</option>
+        <option>NIDS</option>
+    </select>
+    <!--input id="last-name" type="text" formControlName="option"-->
+    <!--small class="text-danger" *ngIf="etudiantForm.get('option')?.hasError('required') && etudiantForm.touched==true">
+        This field is required.
+    </small-->
+
+    <br>
+    <button type="submit" (click)="updateEtudiant()" [disabled]="!etudiantForm.valid">Submit</button>
+</form>
