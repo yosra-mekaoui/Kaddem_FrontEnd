@@ -3,6 +3,7 @@ import {Contrat} from "../../Models/Contrat";
 import {ContratService} from "../../../services/contrat.service";
 import {Router} from "@angular/router";
 import {FormBuilder} from "@angular/forms";
+import {Specialite} from "../../Models/Specialite";
 
 @Component({
   selector: 'app-addcontrat',
@@ -14,14 +15,19 @@ export class AddcontratComponent implements OnInit {
 
   });
   contrat: Contrat = new Contrat();
-  constructor(private contratService: ContratService, private router: Router, private c :FormBuilder) { }
+
+  specialite =Specialite;
+  constructor(private contratService: ContratService, private router: Router, private c :FormBuilder) {
+
+  }
 
   ngOnInit(): void {
+
   }
   savecontrat(){
     this.contratService.createcontrat(this.contrat).subscribe( data =>{
         this.goTocontratList();
-        alert("report added");
+        alert("contrat added");
       },
       error => console.log(error));
   }

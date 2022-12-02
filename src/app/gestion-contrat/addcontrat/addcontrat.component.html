@@ -3,25 +3,39 @@
   <div class="col-12">
     <div class="card">
       <div class="card-body">
-  <h1>Add Contrat</h1>
-      <form   (ngSubmit)="onSubmit()" class="mt-4">
+        <h1>Add Contrat</h1>
+        <form   (ngSubmit)="onSubmit()" class="mt-4">
 
-        <div class="form-group">
-          <input type="date" class="form-control" value="2008-05-13"  name="dateDebutContrat" [(ngModel)]="contrat.dateDebutContrat">
-        </div>
-        <div class="form-group">
-          <input type="date" class="form-control" name="dateFinContrat" value="2008-05-13" [(ngModel)]="contrat.dateFinContrat">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control"  name="archive" [(ngModel)]="contrat.archive">
-        </div>
-        <div class="form-group">
-          <input type="number" class="form-control"
-                 [(ngModel)]="contrat.montantContrat" name="montantContrat">
-        </div>
-        <button type="submit" ><mat-icon>save</mat-icon></button>
-      </form>
+          <div class="form-group">
+            <label class="mr-sm-2">Date debut</label>
+
+            <input type="date" class="form-control" value="2008-05-13"  name="dateDebutContrat" [(ngModel)]="contrat.dateDebutContrat">
+          </div>
+          <div class="form-group">
+            <label class="mr-sm-2">Date fin</label>
+            <input type="date" class="form-control" name="dateFinContrat" value="2008-05-13" [(ngModel)]="contrat.dateFinContrat">
+          </div>
+          <div class="form-group">
+            <label class="mr-sm-2">Archive</label>
+            <input type="text" class="form-control"  name="archive" [(ngModel)]="contrat.archive">
+          </div>
+          <div class="form-group">
+            <label class="mr-sm-2">Montant</label>
+            <input type="number" class="form-control"
+                   [(ngModel)]="contrat.montantContrat" name="montantContrat">
+          </div>
+          <div class="form-group mb-4">
+            <label class="mr-sm-2" for="specialite">Specialite</label>
+            <select class="custom-select mr-sm-2" id="specialite" [(ngModel)]="contrat.specialite" name="specialite" >
+              <option [ngValue]="null">Choisir votre specialite</option>
+              <option *ngFor="let sp of specialite | keyvalue" [ngValue]="sp.value">{{sp.value}}</option>
+            </select>
+
+
+          </div>
+          <button type="submit" ><mat-icon>save</mat-icon></button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 </div>

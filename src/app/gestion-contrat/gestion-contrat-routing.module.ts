@@ -7,7 +7,7 @@ import {UpdatecontratComponent} from "./updatecontrat/updatecontrat.component";
 const routes: Routes = [
   {path: 'listContrat',component:ListContratComponent},
   {path: 'addContrat',component:AddcontratComponent},
-  {path: 'updateContrat',component:UpdatecontratComponent}
+  {path: 'updateContrat/:idContrat',component:UpdatecontratComponent}
 ];
 
 

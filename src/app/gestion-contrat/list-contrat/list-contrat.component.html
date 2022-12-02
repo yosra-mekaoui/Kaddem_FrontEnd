@@ -15,7 +15,7 @@
               <th>Date Fin</th>
               <th>Archive</th>
               <th>Montant</th>
-
+               <th>Specialite</th>
               <th></th>
               <th></th>
             </tr>
@@ -28,9 +28,11 @@
               <td>{{u.dateFinContrat}}</td>
               <td>{{u.archive}}</td>
               <td>{{u.montantContrat}}</td>
+              <td>{{u.specialite}}</td>
               <td><button (click) = "deletecontrat(u.idContrat)"><mat-icon> delete</mat-icon></button> </td>
-              <td> <button routerLink="/contrat/updateContrat" ><mat-icon>update</mat-icon> </button></td>
 
+
+              <td> <button [routerLink]="['/contrat/updateContrat',u.idContrat]"><mat-icon>update</mat-icon> </button></td>
 
             </tr>
 
