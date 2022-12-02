@@ -10,7 +10,7 @@ export class ServiceDepartService {
   urlDel='http://localhost:8080/test/dep/remove/' 
   urlAdd='http://localhost:8080/test/dep/add' 
   urlGetId='http://localhost:8080/test/dep/get/'
-  urlUpdate='http://localhost:8080/test/dep/updateDepar/' // URL de l'API
+  urlUpdate='http://localhost:8080/test/dep/updateDepar' // URL de l'API
   Departement=[];
   constructor(private http: HttpClient) { }
 
@@ -32,8 +32,9 @@ AddDepart(Departement: Departement):Observable<Departement>{
 }
 UpdateDepart(id:number, d: Departement){
  
+ alert(d.nomDepart);
+ return this.http.put<Departement>(this.urlUpdate,d);
  
- return this.http.put(this.urlUpdate+''+id,d);
 }
 getDepartById(id:Number){
   return this.http.get<Departement>(this.urlGetId+id);

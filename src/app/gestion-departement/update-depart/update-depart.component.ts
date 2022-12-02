@@ -14,7 +14,7 @@ export class UpdateDepartComponent implements OnInit {
   myDepart!:Departement;
   reactiveForm=this.fb.group(
     {
-     // idDepart:['',[Validators.required]],
+       idDepart:[''],
       nomDepart:['']
     }
   );
@@ -26,8 +26,8 @@ export class UpdateDepartComponent implements OnInit {
     this.myDepart=data;
   
      
-    this.reactiveForm.patchValue({nomDepart:this.myDepart.nomDepart});
-
+    this.reactiveForm.patchValue({idDepart: this.myDepart.idDepart ,nomDepart:this.myDepart.nomDepart});
+    console.log(this.myDepart.nomDepart)
    // this.reactiveForm.setValue({idDepart:this.myDepart.idDepart,nomDepart:this.myDepart.nomDepart})
    
   
@@ -41,9 +41,9 @@ export class UpdateDepartComponent implements OnInit {
   
   }
 update(){
+
   this.serviceDepar.UpdateDepart(this.myDepart.idDepart,this.reactiveForm.value).subscribe(data=>{
-  
-  alert('chose');
+
   this.R.navigate(['listDepar']);
   }
   )

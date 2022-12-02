@@ -9,11 +9,14 @@ import { ServiceDepartService } from 'src/app/service-depart.service';
   styleUrls: ['./list-departement.component.css']
 })
 export class ListDepartementComponent implements OnInit {
+
 list:Departement[]=[]
   constructor(private serviceDepar:ServiceDepartService) { }
 
   ngOnInit(): void {
     this.getListDepart();
+   // alert(this.list);
+   console.log(this.list)
   }
   getListDepart(){
     this.serviceDepar.getData().subscribe(
