@@ -17,15 +17,21 @@ list:Departement[]=[]
   }
   getListDepart(){
     this.serviceDepar.getData().subscribe(
-      data=>{this.list=data
-      console.log(this.list)}
+      data=>{this.list=data;
+      console.log(this.list);
+    
+    }
     )
       
   }
-
-  DeleteDepart(id:number){
+  DeleteDepart(id:number)
+  {
    
-this.serviceDepar.delete(id);
-  }
+this.serviceDepar.delete(id).subscribe(
+  data =>  {
+  console.log(data);
+this.getListDepart();
+});} 
+
 
 }

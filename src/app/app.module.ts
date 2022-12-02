@@ -9,20 +9,24 @@ import { FooterComponent } from './footer/footer.component';
 import { GestionDepartementModule } from './gestion-departement/gestion-departement.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
+    
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     GestionDepartementModule,
     HttpClientModule,
-    NgbModule
-    
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

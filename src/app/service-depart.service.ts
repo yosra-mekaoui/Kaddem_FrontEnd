@@ -7,7 +7,10 @@ import {Observable} from "rxjs";
 })
 export class ServiceDepartService {
   urlApi = 'http://localhost:8080/test/dep/all'; 
-  urlDel='http://localhost:8080/test/dep/remove/' // URL de l'API
+  urlDel='http://localhost:8080/test/dep/remove/' 
+  urlAdd='http://localhost:8080/test/dep/add' 
+  urlGetId='http://localhost:8080/test/dep/get/'
+  urlUpdate='http://localhost:8080/test/dep/updateDepar/' // URL de l'API
   Departement=[];
   constructor(private http: HttpClient) { }
 
@@ -16,11 +19,23 @@ export class ServiceDepartService {
   getData():Observable<Departement[]> {
     return this.http.get<Departement[]>(this.urlApi);
 }
-
+ 
 delete(id:number){
    
-    this.http.delete(this.urlDel+id)
-        .subscribe(() => console.log("Delete successful"));
+  return  this.http.delete(this.urlDel+id)
+      ;
 
+} 
+ 
+AddDepart(Departement: Departement):Observable<Departement>{
+ return this.http.post<Departement>(this.urlAdd,Departement)
+}
+UpdateDepart(id:number, d: Departement){
+ // const id = Number(d.idDepart);
+ 
+ return this.http.put(this.urlUpdate+id,d);
+}
+getDepartById(id:Number){
+  return this.http.get<Departement>(this.urlGetId+id);
 }
 }
