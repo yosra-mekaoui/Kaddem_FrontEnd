@@ -1,23 +1,84 @@
+<div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+
+
 <h2>Ajouter Etudiant</h2>
 <form [formGroup]="etudiantForm">
+    
+    <table>
+        <tr>
+            <td><label for="first-name">Prenom : </label></td>
+            <td><input id="first-name" type="text" class="form-control" formControlName="prenom">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <small class="text-danger"
+                    *ngIf="etudiantForm.get('prenom')?.hasError('required') && etudiantForm.get('prenom')?.touched==true ">
+                    Le prénom ne peut pas être vide.
+                </small>
+            </td>
+        </tr>
+        <br>
+        
+        <tr>
+            <td><label for="last-name">Nom : </label></td>
+            <td><input id="last-name" type="text" class="form-control" formControlName="nom"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <small class="text-danger"
+                    *ngIf="etudiantForm.get('nom')?.hasError('required') && etudiantForm.get('nom')?.touched==true">
+                    Le nom ne peut pas être vide.
+                </small>
+            </td>
+        </tr>
+        <br>
 
-    <label for="first-name">Prenom : </label>
-    <input id="first-name" type="text" formControlName="prenom">
+        <tr> 
+            <td><label for="last-name">Option : </label></td>
+            <td>
+                <select formControlName="option" class="form-control">
+                    <option selected>GAMIX</option>
+                    <option>SE</option>
+                    <option>SIM</option>
+                    <option>NIDS</option>
+                </select>
+            </td>
+        </tr>
 
+        <br>
+
+
+        <tr>
+            <td colspan="2">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <button class="btn waves-effect waves-light btn-outline-success" type="submit" (click)="addEtudiant()"
+                    [disabled]="!etudiantForm.valid">Ajouter</button> 
+                </div> 
+            </td>
+        </tr>
+    </table>
+
+
+    <!--label for="first-name">Prenom : </label>
+    <input id="first-name" type="text" class="form-control"  formControlName="prenom"> 
     <small class="text-danger" *ngIf="etudiantForm.get('prenom')?.hasError('required') && etudiantForm.get('prenom')?.touched==true ">
         Le prénom ne peut pas être vide.
     </small>
     <br>
 
     <label for="last-name">Nom : </label>
-    <input id="last-name" type="text" formControlName="nom">
+    <input id="last-name" type="text" class="form-control" formControlName="nom">
     <small class="text-danger" *ngIf="etudiantForm.get('nom')?.hasError('required') && etudiantForm.get('nom')?.touched==true">
         Le nom ne peut pas être vide.
     </small>
     <br>
 
     <label for="last-name">Option : </label>
-    <select formControlName="option">
+    <select formControlName="option" class="form-control">
         <option selected>GAMIX</option>
         <option>SE</option>
         <option>SIM</option>
@@ -28,6 +89,12 @@
         This field is required.
     </small-->
 
-    <br>
-    <button type="submit" (click)="addEtudiant()" [disabled]="!etudiantForm.valid">Submit</button>
+    <!--br>
+    <button class="btn waves-effect waves-light btn-outline-success" type="submit" (click)="addEtudiant()" [disabled]="!etudiantForm.valid">Submit</button-->
 </form>
+
+
+</div>
+</div>
+</div>
+</div>
