@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-12">
+    <div class="card">
+    <div class="card-body">
+    
+    
+    <h2>Ajouter universite</h2>
+<form [formGroup]="reactiveForm">
+
+    <div class="card-body">
+        <h4 class="card-title">Nom universite</h4>
+        <div class="mt-4">
+            <div class="form-group">
+                <input type="text" formControlName="nomUniv" class="form-control" name="nomUniv"  id="nomUniv">
+            </div>
+           <!-- <div class="alter alter-danger" *ngIf="nomUniv?.errors?.['required'] && nomUniv.touched"> nom is required</div>-->
+    
+        </div >
+    </div>
+    <!--
+    <div class="card-body">
+        <h4 class="card-title">Nom departement</h4>
+        <div class="mt-4">
+            <div class="form-group">
+                <select   formControlName="departements" class="form-control" name="departements"  id="departements" [(ngModel)]="selectedObject">
+                    <option *ngFor="let c of list"  [ngValue]="c" >{{c.nomDepart}}</option>
+                   </select> 
+            </div>
+          
+        </div >
+    </div>{{selectedObject | json}}-->
+    
+   
+    </form>
+    <select  [(ngModel)]="selectedObject">
+        <option *ngFor="let c of list"  [ngValue]="c" >{{c.nomDepart}}</option>
+
+    </select>
+    <button type="submit" class="btn btn-primary" (click)="Add()">Ajouter</button>
+</div>
+</div>
+</div>
+</div>
