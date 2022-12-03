@@ -5,6 +5,7 @@ import { EtudiantService } from 'src/app/Services/Etudiant/etudiant.service';
 import { Etudiant } from 'src/app/Models/Etudiant';
 import { Router } from '@angular/router';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Contrat } from 'src/app/Models/Contrat';
 
 
 @Component({
@@ -27,12 +28,18 @@ export class EditEtudiantComponent implements OnInit {
   
   id!: any;
   etudiant !: Etudiant;  
+  listContrats: Contrat[] = [];   
+  totalContrats !: number;
+  
   
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.getEtudiant(); 
-    console.log(this.id); 
+    this.getContratsByEtudiant(); 
+    
+    
     this.etudiant.idEtudiant = this.id; 
+        
   }
 
   getEtudiant() {
@@ -52,6 +59,15 @@ export class EditEtudiantComponent implements OnInit {
     //e.idEtudiant = this.id; 
     this.etudiantS.updateEtudiant(e).subscribe(data => {
       this.router.navigate(['/etudiant'])
+    }); 
+  }
+
+
+  getContratsByEtudiant() {
+    this.etudiantS.getContratsByEtudiant(this.id).subscribe(data =>
+    { 
+      this.listContrats = data; 
+      this.totalContrats = this.listContrats.length;
     }); 
   }
 }
