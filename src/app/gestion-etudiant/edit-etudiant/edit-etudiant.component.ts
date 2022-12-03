@@ -6,13 +6,16 @@ import { Etudiant } from 'src/app/Models/Etudiant';
 import { Router } from '@angular/router';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Contrat } from 'src/app/Models/Contrat';
-
+import { Equipe } from 'src/app/Models/Equipe';
+ 
 
 @Component({
   selector: 'app-edit-etudiant',
   templateUrl: './edit-etudiant.component.html',
   styleUrls: ['./edit-etudiant.component.css']
 })
+  
+  
 export class EditEtudiantComponent implements OnInit {
   
   etudiantForm = this.fb.group({
@@ -28,16 +31,19 @@ export class EditEtudiantComponent implements OnInit {
   
   id!: any;
   etudiant !: Etudiant;  
-  listContrats: Contrat[] = [];   
+  listContrats: Contrat[] = []; 
+  listEquipes: Equipe[] = [];   
+  totalEquipes !: number;
   totalContrats !: number;
-  
+  allContrats: Contrat[] = []; 
+  selectedContrat ='' ;
   
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.getEtudiant(); 
     this.getContratsByEtudiant(); 
-    
-    
+    this.getEquipesByEtudiant(); 
+    this.getContrats(); 
     this.etudiant.idEtudiant = this.id; 
         
   }
@@ -54,6 +60,8 @@ export class EditEtudiantComponent implements OnInit {
       }); 
     }); 
   }
+
+
   updateEtudiant() {
     let e = this.etudiantForm.getRawValue(); 
     //e.idEtudiant = this.id; 
@@ -70,4 +78,37 @@ export class EditEtudiantComponent implements OnInit {
       this.totalContrats = this.listContrats.length;
     }); 
   }
+
+  getEquipesByEtudiant() {
+    this.etudiantS.getEquipesByEtudiant(this.id).subscribe(data =>
+    { 
+      this.listEquipes = data; 
+      this.totalEquipes = this.listEquipes.length;
+    }); 
+  }
+
+  getContrats() {
+    this.etudiantS.getAllContrats().subscribe(data =>
+    { 
+      this.allContrats = data;  
+    }); 
+  }
+
+  assignContratToEtudiant() {
+    this.etudiantS.assignContratToEtudiant( +this.selectedContrat , this.id).subscribe(data =>
+    { 
+      this.getContratsByEtudiant();   
+    }); 
+  }
+
+  onSelected(value:string): void {
+		this.selectedContrat = value;
+	}
+
 }
+
+
+
+
+
+ 

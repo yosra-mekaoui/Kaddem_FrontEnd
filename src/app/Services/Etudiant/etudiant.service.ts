@@ -3,6 +3,7 @@ import { Etudiant } from 'src/app/Models/Etudiant';
 import { HttpClient } from '@angular/common/http'; 
 import { Observable } from "rxjs";
 import { Contrat } from 'src/app/Models/Contrat';
+import { Equipe } from 'src/app/Models/Equipe';
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +38,17 @@ export class EtudiantService {
 
   getContratsByEtudiant(id:number) : Observable<Contrat[]>{
     return this.http.get<[Contrat]>(this.url+"contratsByEtudiant/"+id);
+  }
+  
+  getEquipesByEtudiant(id:number) : Observable<Equipe[]>{
+    return this.http.get<[Equipe]>(this.url+"equipesByEtudiant/"+id);
+  }
+
+  getAllContrats(): Observable<Contrat[]>{ 
+    return this.http.get<[Contrat]>("http://localhost:8189/kaddem/contrat/all");
+  }
+
+  assignContratToEtudiant(idContrat: number, idEtudiant : number){
+    return this.http.put<Etudiant>("http://localhost:8189/kaddem/contrat/"+idContrat+"/"+idEtudiant, null);
   }
 }
