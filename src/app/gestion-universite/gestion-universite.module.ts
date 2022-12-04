@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { GestionUniversiteRoutingModule } from './gestion-universite-routing.module';
 import { ListUniversiteComponent } from './list-universite/list-universite.component';
 import { AddUniversiteComponent } from './add-universite/add-universite.component';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
@@ -15,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     GestionUniversiteRoutingModule,
     FormsModule, 
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    MatGridListModule 
   ]
 })
 export class GestionUniversiteModule { }

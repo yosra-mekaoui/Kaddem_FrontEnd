@@ -5,13 +5,13 @@
     
     
     <h2>Ajouter universite</h2>
-<form [formGroup]="reactiveForm">
+<form >
 
     <div class="card-body">
         <h4 class="card-title">Nom universite</h4>
         <div class="mt-4">
             <div class="form-group">
-                <input type="text" formControlName="nomUniv" class="form-control" name="nomUniv"  id="nomUniv">
+                <input type="text"  [(ngModel)]="universite.nomUniv" class="form-control" name="nomUniv"  id="nomUniv">
             </div>
            <!-- <div class="alter alter-danger" *ngIf="nomUniv?.errors?.['required'] && nomUniv.touched"> nom is required</div>-->
     
@@ -30,12 +30,25 @@
         </div >
     </div>{{selectedObject | json}}-->
     
-   
-    </form>
+ 
+</form>
+ 
+   <div class="form-group">
+        <label for="theNumber">InputNumber</label>
+        <input type="text" [(ngModel)]="theValue"  id="theNumber"/>
+    </div>
+    <p>{{theValue}}</p>
+ <div *ngFor="let n of numSequence(theValue)">
     <select  [(ngModel)]="selectedObject">
         <option *ngFor="let c of list"  [ngValue]="c" >{{c.nomDepart}}</option>
 
     </select>
+</div>
+<div>
+    <input type="file" multiple value="select" #selectFile 
+    (change)="onFileSelected($event)"
+    >
+</div> 
     <button type="submit" class="btn btn-primary" (click)="Add()">Ajouter</button>
 </div>
 </div>

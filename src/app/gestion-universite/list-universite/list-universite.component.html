@@ -21,14 +21,14 @@
                             </tr>
                         </thead>
                         <tbody> 
-                            <tr *ngFor="let u of list">
+                        <tr *ngFor="let u of list">
                                 <td>{{u.idUniv}}</td>
                                 <td>{{u.nomUniv}}</td>
                               
                                <div *ngFor="let d of u.departements">
 
                                <td>
-                               mmm{{d.nomDepart}}
+                               {{d.nomDepart}}
                                 </td>
                                 
                               </div>
@@ -38,7 +38,7 @@
                                     <a  class="btn waves-effect waves-light btn-warning">Edit</a>
                                      
                                 </td> 
-                            </tr> 
+                            </tr>  
                         </tbody> 
                     </table>
                 </div>

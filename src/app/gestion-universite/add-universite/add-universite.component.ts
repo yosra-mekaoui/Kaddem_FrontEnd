@@ -5,7 +5,9 @@ import { universite } from 'src/app/Models/Universite';
 import { Departement } from 'src/app/Models/Departement';
 import { ServiceDepartService } from 'src/app/service-depart.service';
 import { ServiceUniversiteService } from 'src/app/serviceUniversite/service-universite.service';
-
+import { FileHandle } from 'src/app/Models/file-handle.model';
+import { DomSanitizer } from '@angular/platform-browser';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-add-universite',
   templateUrl: './add-universite.component.html',
@@ -17,7 +19,17 @@ export class AddUniversiteComponent implements OnInit {
   maxId!:number;
   u: universite =new universite();
   o:any;
-  constructor(private serviceDepar:ServiceDepartService,private serviceUniv:ServiceUniversiteService,private R:Router,private fb:FormBuilder) { }
+  theValue!:any;
+  universite:universite={
+    idUniv:0,
+    nomUniv:"",
+    departements:[],
+    images:[]
+}
+   
+  constructor(private serviceDepar:ServiceDepartService,private serviceUniv:ServiceUniversiteService,private R:Router,private fb:FormBuilder,private sanitizer:DomSanitizer) { }
+  
+  
   reactiveForm=this.fb.group(
     {
        
@@ -37,12 +49,58 @@ export class AddUniversiteComponent implements OnInit {
     }
     )     
   }
+  onFileSelected(event:any){
+   console.log(event);
+if(event.target.files){
+  const file=event.target.files[0]; 
+  const FileHandle:FileHandle={
+    file: file,
+    url:this.sanitizer.bypassSecurityTrustUrl(
+      window.URL.createObjectURL(file)
+    )
+  }
+this.universite.images.push(FileHandle);
+alert(this.universite.images)
+}
+  }
+  // add with image
    
+  Add(){
+    
+    const c=this.prepareFormData(this.universite)
   
+    this.serviceUniv.addWithImage(c).subscribe(
+      (Response:universite)=>{
+        this.reactiveForm.reset();
+      },
+      (error:HttpErrorResponse)=>{
+      console.log(error);}
+    );
+    this.R.navigate(['listUniv'])
+  }
+    
+prepareFormData(univer:universite):FormData{
+  const formData=new FormData();
+    formData.append(
+      'universite',new Blob([JSON.stringify(univer)],{type:'application/json'})
+    );
+     for(let i=0;i<univer.images.length;i++) {
+      formData.append(
+        'imageFile',
+        univer.images[i].file,
+        univer.images[i].file.name
+      );
+     }
+     return formData;
+}
+    // add without image 
+    /*
 Add(){
-alert("add" +this.selectedObject.idDepart+"kkkkkkkkkkkkkk"+this.maxId);
- // alert( this.reactiveForm.value)
-  this.serviceUniv.AddUniv(this.reactiveForm.value).subscribe(data =>{
+//alert("add" +this.selectedObject.idDepart+"kkkkkkkkkkkkkk"+this.maxId);
+
+
+ 
+  this.serviceUniv.AddUniv(this.universite).subscribe(data =>{
   
   })
   
@@ -51,7 +109,7 @@ alert("add" +this.selectedObject.idDepart+"kkkkkkkkkkkkkk"+this.maxId);
 
   })
   this.R.navigate(['listUniv'])
-}
+} */
 getmaxid(){
   return this.serviceUniv.getmaxid().subscribe(
     data=>{
@@ -63,6 +121,9 @@ getmaxid(){
 }
 get nomUniv(){
   return this.reactiveForm.get('nomUniv')
+}
+numSequence(n: number): Array<number> {
+  return Array(n);
 }
  
 }

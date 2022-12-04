@@ -10,7 +10,7 @@ export class ServiceUniversiteService {
   urlApi = 'http://localhost:8080/test/univer/all'; 
   urlDel='http://localhost:8080/test/dep/remove/' ;
   urlAdd='http://localhost:8080/test/univer/add' ;
-  urlGetId='http://localhost:8080/test/dep/get/';
+  addwithimage='http://localhost:8080/test/univer/addWithImage';
   urlUpdate='http://localhost:8080/test/dep/updateDepar';
   urlgetmaxid='http://localhost:8080/test/univer/maxid';
   relation='http://localhost:8080/test/dep/assignUniversiteToDepartement/'
@@ -33,5 +33,9 @@ return this.http.get<any>(this.urlgetmaxid);
  }
  relationdepart(idUniv:number,idDepart:number){
 return this.http.put(this.relation+idUniv+"/"+idDepart,this.d);
+ }
+
+ addWithImage(u: FormData){
+  return this.http.post<universite>(this.addwithimage,u);
  }
 }
