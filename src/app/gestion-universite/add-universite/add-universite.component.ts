@@ -93,6 +93,9 @@ prepareFormData(univer:universite):FormData{
      }
      return formData;
 }
+removeImage(i:number){
+this.universite.images.splice(i,1);
+}
     // add without image 
     /*
 Add(){

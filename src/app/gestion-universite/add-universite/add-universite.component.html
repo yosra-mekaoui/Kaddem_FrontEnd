@@ -48,7 +48,17 @@
     <input type="file" multiple value="select" #selectFile 
     (change)="onFileSelected($event)"
     >
-</div> 
+</div> <br><br>
+<div>
+    <mat-grid-list cols="4" rowHeight="1:1">
+        <mat-grid-tile *ngFor="let file of universite.images; let i=index;">
+            <div>
+                <span class="btn-remove-image" (click)="removeImage(i)">x</span>
+            <img [src]="file.url" width="100px" height="100px">
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
     <button type="submit" class="btn btn-primary" (click)="Add()">Ajouter</button>
 </div>
 </div>
