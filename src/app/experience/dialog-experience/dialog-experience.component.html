@@ -1,0 +1,81 @@
+
+
+<h1 mat-dialog-title>Experience</h1>
+
+<div mat-dialog-content>
+
+    <form [formGroup]="experienceForm">
+
+        
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>titreDuProfil</mat-label>
+        <input   formControlName="titreDuProfil"   matInput placeholder="titreDuProfil" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>type</mat-label>
+        <input   formControlName="type"   matInput placeholder="type" />
+    </mat-form-field>
+    
+  
+    <mat-form-field appearance="outline">
+        <mat-label>dateDebutExperience</mat-label>
+        <input   formControlName="dateDebutExperience"   matInput placeholder="dateDebutExperience" />
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>dateFinExperience</mat-label>
+        <input   formControlName="dateFinExperience"   matInput placeholder="dateFinExperience" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>descriptif</mat-label>
+        <input   formControlName="descriptif"   matInput placeholder="descriptif" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>lieu</mat-label>
+        <input   formControlName="lieu"   matInput placeholder="lieu" />
+    </mat-form-field>
+
+   
+
+     <div mat-dialog-actions [align]="'end'">
+
+        <button style="margin-right: 5px;" mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+
+        <button mat-raised-button color="primary" (click)="addExperience()">{{actionButton}}</button>
+  
+
+     </div>
+
+
+
+
+
+
+
+
+    </form>
+
+
+
+    
+
+
+
+   
+  
+</div>
+
+
+
+ 
+
+
+
+
+

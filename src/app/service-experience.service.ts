@@ -14,28 +14,49 @@ export class ServiceExperienceService {
   constructor(private http: HttpClient ) {
     
    }
-   getData(): Observable<Experience[]>{
-    return this.http.get<Experience[]>(`${this.urlApi+"/getAllExperience"}`);
+
+   getExperience(){
+    return this.http.get<any>("http://localhost:8080/test/Experience/getAllExperience");
+  
   }
+   /*getData(): Observable<Experience[]>{
+    return this.http.get<Experience[]>(`${this.urlApi+"/getAllExperience"}`);
+  }*/
+
+
  
   deleteExperience(id: number) : Observable<Experience[]>{
     return this.http.delete<[Experience]>(this.urlApi+"/remove/"+id);
   }
-  addExperience(experience:Experience): Observable<Experience>{
-    return this.http.post<Experience>(`${this.urlApi+"/add"}`,experience);
+
+
+
+  postExperience(data : any){
+    return this.http.post<any>("http://localhost:8080/test/Experience/add",data);
+  
   }
-  UpdateExperience(id:number, experience: Experience){
+ /* addExperience(experience:Experience): Observable<Experience>{
+    return this.http.post<Experience>(`${this.urlApi+"/add"}`,experience);
+  }*/
+
+  updateExperience(data:any,id:number){
+
+    return this.http.put<any>("http://localhost:8080/test/Experience/update/"+id,data)
+    }
+  /*UpdateExperience(id:number, experience: Experience){
     
     
     return this.http.put(`${this.urlApi+"/update/"+id}`,experience);
    }
-   /*UpdateExperience(id:number, experience: Experience){
-    // const id = Number(d.idDepart);
-    
-    return this.http.put(this.urlUpdate+id,experience);
-   }*/
+*/
    getExperienceById(id:Number){
      return this.http.get<Experience>(this.urlApi+"/get/"+id);
    }
-      
+     
+   exportPdfExperiences():Observable<Blob>{
+    return this.http.get("http://localhost:8080/test/Experience/export/pdf", {responseType: 'blob' });
+   }
+   exportExcelExperiences():Observable<Blob>{
+    return this.http.get("http://localhost:8080/test/Experience/export/excel", {responseType: 'blob' });
+}
 }

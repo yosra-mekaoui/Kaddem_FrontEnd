@@ -8,19 +8,24 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ExperienceModule } from './experience/experience.module';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ExportExperienceComponent } from './export-experience/export-experience.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ExportExperienceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ExperienceModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,27 +4,46 @@ import { RouterModule } from '@angular/router';
 
 import { ExperienceRoutingModule } from './experience-routing.module';
 import { ListExperienceComponent } from './list-experience/list-experience.component';
-import { AddExperienceComponent } from './add-experience/add-experience.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UpdateExperienceComponent } from './update-experience/update-experience.component';
+import { DialogExperienceComponent } from './dialog-experience/dialog-experience.component';
 
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
+import { HttpClientModule } from '@angular/common/http';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatIconModule} from '@angular/material/icon'
+
+import { ServiceExperienceService } from 'src/app/service-experience.service';
 
 
 @NgModule({
   declarations: [
     ListExperienceComponent,
-    AddExperienceComponent,
-    UpdateExperienceComponent
+  
+    DialogExperienceComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     ExperienceRoutingModule,
+    MatButtonModule,
+    MatTableModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    ReactiveFormsModule,
     FormsModule,
-    ReactiveFormsModule
+    HttpClientModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatIconModule
   ],
-  exports: [
-    ListExperienceComponent,
-  ]
+  providers: [ServiceExperienceService],
 })
 export class ExperienceModule { }
