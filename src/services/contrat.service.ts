@@ -25,4 +25,8 @@ export class ContratService {
   updatecontrat(id: number, contrat :Contrat): Observable<Object>{
     return this.httpClient.put(`http://localhost:8888/kaddem/contrat/update`, contrat);
   }
+  pdf():Observable<Blob>
+  {
+    return this.httpClient.get("http://localhost:8888/kaddem/export/pdf", {responseType: 'blob'});
+  }
 }

@@ -39,4 +39,5 @@ export class AddcontratComponent implements OnInit {
     console.log(this.contrat);
     this.savecontrat();
   }
+
 }

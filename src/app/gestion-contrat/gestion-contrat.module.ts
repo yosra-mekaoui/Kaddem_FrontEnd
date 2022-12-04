@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { UpdatecontratComponent } from './updatecontrat/updatecontrat.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 
 
@@ -20,18 +21,19 @@ import { UpdatecontratComponent } from './updatecontrat/updatecontrat.component'
     AddcontratComponent,
     UpdatecontratComponent
   ],
-  imports: [
-    CommonModule,
-    GestionContratRoutingModule,
-    MatIconModule,
-    MatCardModule,
-    MatRadioModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatToolbarModule,
-    MatCheckboxModule,
-    FormsModule
-  ],
+    imports: [
+        CommonModule,
+        GestionContratRoutingModule,
+        MatIconModule,
+        MatCardModule,
+        MatRadioModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatToolbarModule,
+        MatCheckboxModule,
+        FormsModule,
+        MatDatepickerModule
+    ],
   exports:[ListContratComponent]
 })
 export class GestionContratModule { }

@@ -1,7 +1,7 @@
 export enum Specialite {
-IA="IA",
-  Reseaux="Reseaux",
-  Cloud="Cloud",
-  Securite="Securite"
+  IA="IA",
+  SECURITE="SECURITE",
+  CLOUD="CLOUD",
+  RESEAUX="RESEAUX"
 }
 console.log ('specialite.IA:', Specialite.IA);
