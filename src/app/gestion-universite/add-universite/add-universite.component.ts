@@ -43,7 +43,7 @@ export class AddUniversiteComponent implements OnInit {
     this.getmaxid();
   }
   getListDepart(){
-    this.serviceDepar.getData().subscribe(
+    this.serviceUniv.listedepart().subscribe(
       data=>{this.list=data;
       //console.log(this.list);
     }
@@ -69,13 +69,10 @@ alert(this.universite.images)
     
     const c=this.prepareFormData(this.universite)
   
-    this.serviceUniv.addWithImage(c).subscribe(
-      (Response:universite)=>{
-        this.reactiveForm.reset();
-      },
-      (error:HttpErrorResponse)=>{
-      console.log(error);}
+    this.serviceUniv.addWithImage(c).subscribe( 
     );
+    this.serviceUniv.relationdepart(this.maxId+1,this.selectedObject.idDepart).subscribe(data=>{
+    });
     this.R.navigate(['listUniv'])
   }
     

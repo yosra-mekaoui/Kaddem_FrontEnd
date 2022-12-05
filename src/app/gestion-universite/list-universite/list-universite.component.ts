@@ -23,4 +23,12 @@ export class ListUniversiteComponent implements OnInit {
     )
       
   }
+  DeleteUniv(id:number)
+  {
+   
+this.serviceUniv.delete(id).subscribe(
+  data =>  {
+  console.log(data);
+this.getListUniv();
+});} 
 }
