@@ -51,4 +51,30 @@ export class EtudiantService {
   assignContratToEtudiant(idContrat: number, idEtudiant : number){
     return this.http.put<Etudiant>("http://localhost:8189/kaddem/contrat/"+idContrat+"/"+idEtudiant, null);
   }
+ 
+  getAllEquipes(): Observable<Equipe[]>{ 
+    return this.http.get<[Equipe]>("http://localhost:8189/kaddem/equipe/all");
+  }
+
+  assignEquipeToEtudiant(idEquipe: number, idEtudiant : number){
+    return this.http.put<Etudiant>("http://localhost:8189/kaddem/etudiant/assignEquipeToEtudiant/"+idEquipe+"/"+idEtudiant, null);
+  }
+
+  getTotalContratsAffectes() : Observable<number>{
+    return this.http.get<number>(this.url+"totalContratsAffectes");
+  }
+
+  getTotalEquipesAffectes() : Observable<number>{
+    return this.http.get<number>(this.url+"totalEquipesAffectes");
+  }
+
+  removeContratAffecte(idEtudiant: number, idContrat : number){
+    return this.http.put<Etudiant>("http://localhost:8189/kaddem/etudiant/removeContratAffecte/"+idEtudiant+"/"+idContrat, null);
+  }
+
+  removeEquipeAffecte(idEtudiant: number, idEquipe : number){
+    return this.http.put<Etudiant>("http://localhost:8189/kaddem/etudiant/removeEquipeAffecte/"+idEtudiant+"/"+idEquipe, null);
+  }
+
+  
 }

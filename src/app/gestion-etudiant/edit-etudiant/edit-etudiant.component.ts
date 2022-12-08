@@ -4,9 +4,8 @@ import { Validators } from '@angular/forms';
 import { EtudiantService } from 'src/app/Services/Etudiant/etudiant.service';
 import { Etudiant } from 'src/app/Models/Etudiant';
 import { Router } from '@angular/router';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Contrat } from 'src/app/Models/Contrat';
-import { Equipe } from 'src/app/Models/Equipe';
+import { ActivatedRoute, ParamMap } from '@angular/router'; 
+
  
 
 @Component({
@@ -31,19 +30,12 @@ export class EditEtudiantComponent implements OnInit {
   
   id!: any;
   etudiant !: Etudiant;  
-  listContrats: Contrat[] = []; 
-  listEquipes: Equipe[] = [];   
-  totalEquipes !: number;
-  totalContrats !: number;
-  allContrats: Contrat[] = []; 
-  selectedContrat ='' ;
+
   
+
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.getEtudiant(); 
-    this.getContratsByEtudiant(); 
-    this.getEquipesByEtudiant(); 
-    this.getContrats(); 
+    this.getEtudiant();  
     this.etudiant.idEtudiant = this.id; 
         
   }
@@ -71,39 +63,9 @@ export class EditEtudiantComponent implements OnInit {
   }
 
 
-  getContratsByEtudiant() {
-    this.etudiantS.getContratsByEtudiant(this.id).subscribe(data =>
-    { 
-      this.listContrats = data; 
-      this.totalContrats = this.listContrats.length;
-    }); 
-  }
+  
 
-  getEquipesByEtudiant() {
-    this.etudiantS.getEquipesByEtudiant(this.id).subscribe(data =>
-    { 
-      this.listEquipes = data; 
-      this.totalEquipes = this.listEquipes.length;
-    }); 
-  }
-
-  getContrats() {
-    this.etudiantS.getAllContrats().subscribe(data =>
-    { 
-      this.allContrats = data;  
-    }); 
-  }
-
-  assignContratToEtudiant() {
-    this.etudiantS.assignContratToEtudiant( +this.selectedContrat , this.id).subscribe(data =>
-    { 
-      this.getContratsByEtudiant();   
-    }); 
-  }
-
-  onSelected(value:string): void {
-		this.selectedContrat = value;
-	}
+  
 
 }
 

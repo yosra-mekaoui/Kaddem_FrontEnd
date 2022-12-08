@@ -12,7 +12,9 @@ export class ListEtudiantsComponent implements OnInit {
   
   constructor(private route:Router, private etudiantS : EtudiantService) { }
 
-  listEtudiants:Etudiant[] = [];   
+  listEtudiants: Etudiant[] = [];
+  input!: any; 
+  
   ngOnInit(): void {
     this.getEtudiants(); 
     console.log(this.listEtudiants); 

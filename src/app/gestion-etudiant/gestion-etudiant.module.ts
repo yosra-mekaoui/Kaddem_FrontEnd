@@ -6,18 +6,27 @@ import { GestionEtudiantRoutingModule } from './gestion-etudiant-routing.module'
 import { AddEtudiantComponent } from './add-etudiant/add-etudiant.component'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditEtudiantComponent } from './edit-etudiant/edit-etudiant.component';
-
+import { GetContratsComponent } from './get-contrats/get-contrats.component';
+import { GetEquipesComponent } from './get-equipes/get-equipes.component';
+import { StatComponent } from './stat/stat.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     ListEtudiantsComponent,
     AddEtudiantComponent,
-    EditEtudiantComponent
+    EditEtudiantComponent,
+    GetContratsComponent,
+    GetEquipesComponent,
+    StatComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     GestionEtudiantRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    FormsModule
   ],
   exports: [
     ListEtudiantsComponent
