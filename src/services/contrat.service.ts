@@ -29,4 +29,14 @@ export class ContratService {
   {
     return this.httpClient.get("http://localhost:8888/kaddem/export/pdf", {responseType: 'blob'});
   }
+  nbcontratvalide(sdate:String,edate:String):Observable<number>{
+    return this.httpClient.get<number>(`http://localhost:8888/kaddem/contrat/nbContratsValides/${sdate}/${edate}`);
+
+  }
+  notificationContrat():Observable<String>{
+    return this.httpClient.get<String>(`http://localhost:8888/kaddem/contrat/notification`);
+  }
+  pagination(num:number,page:number):Observable<Contrat[]>{
+    return this.httpClient.get<Contrat[]>(`http://localhost:8888/kaddem/contrat/pagination/${num}/${page}`);
+  }
 }

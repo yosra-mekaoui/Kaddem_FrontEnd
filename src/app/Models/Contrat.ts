@@ -10,4 +10,6 @@ export class Contrat{
   public specialite!: Specialite;
   public  etudiant!: Etudiant;
 
+
+
 }

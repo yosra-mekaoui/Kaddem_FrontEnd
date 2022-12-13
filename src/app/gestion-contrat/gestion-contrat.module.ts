@@ -12,14 +12,17 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { UpdatecontratComponent } from './updatecontrat/updatecontrat.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
-
+import {MatPaginatorModule} from "@angular/material/paginator";
+import { AffichageComponent } from './affichage/affichage.component';
+import { Ng2SearchPipeModule} from "ng2-search-filter";
 
 
 @NgModule({
   declarations: [
     ListContratComponent,
     AddcontratComponent,
-    UpdatecontratComponent
+    UpdatecontratComponent,
+    AffichageComponent
   ],
     imports: [
         CommonModule,
@@ -32,7 +35,9 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
         MatToolbarModule,
         MatCheckboxModule,
         FormsModule,
-        MatDatepickerModule
+        MatDatepickerModule,
+        MatPaginatorModule,
+        Ng2SearchPipeModule
     ],
   exports:[ListContratComponent]
 })

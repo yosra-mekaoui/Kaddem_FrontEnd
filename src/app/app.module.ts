@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 
+import { CommonModule } from '@angular/common';
 
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -14,14 +15,14 @@ import { GestionEtudiantModule } from './gestion-etudiant/gestion-etudiant.modul
 import { GestionContratModule } from './gestion-contrat/gestion-contrat.module';
 import {HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalenderComponent } from './calender/calender.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent,
-    CalenderComponent,
+    FooterComponent
+
 
 
 
@@ -35,8 +36,14 @@ import { CalenderComponent } from './calender/calender.component';
     FormsModule,
     BrowserAnimationsModule,
     MatNativeDateModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
+    CommonModule,
+
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

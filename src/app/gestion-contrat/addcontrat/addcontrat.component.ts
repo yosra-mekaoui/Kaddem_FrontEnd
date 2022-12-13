@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Contrat} from "../../Models/Contrat";
 import {ContratService} from "../../../services/contrat.service";
 import {Router} from "@angular/router";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
 import {Specialite} from "../../Models/Specialite";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addcontrat',
@@ -12,12 +13,17 @@ import {Specialite} from "../../Models/Specialite";
 })
 export class AddcontratComponent implements OnInit {
   reactiveForm = this.c.group({
-
+    dateDebutContrat:['', [Validators.required]],
+    dateFinContrat:['', [Validators.required]],
+    archive:['', [Validators.required]],
+    montantContrat:['', [Validators.required]],
+    specialite:['', [Validators.required]]
   });
   contrat: Contrat = new Contrat();
 
   specialite =Specialite;
-  constructor(private contratService: ContratService, private router: Router, private c :FormBuilder) {
+  boo: Boolean[]=[true,false];
+  constructor(private contratService: ContratService, private router: Router, private c :FormBuilder,private toastr: ToastrService) {
 
   }
 
@@ -25,15 +31,15 @@ export class AddcontratComponent implements OnInit {
 
   }
   savecontrat(){
-    this.contratService.createcontrat(this.contrat).subscribe( data =>{
-        this.goTocontratList();
-        alert("contrat added");
-      },
-      error => console.log(error));
+    let e =  this.reactiveForm.getRawValue() ;
+    this.contratService.createcontrat(e).subscribe( data =>{
+      this.router.navigate(['/contrat/listContrat']);
+
+        this.toastr.success('Contrat ajouté avec succés');
+      });
   }
-  goTocontratList(){
-    this.router.navigate(['/contrat/listcontrat']);
-  }
+
+
 
   onSubmit(){
     console.log(this.contrat);

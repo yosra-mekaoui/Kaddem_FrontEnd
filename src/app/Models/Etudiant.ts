@@ -4,7 +4,7 @@ export class Etudiant{
   idEtudiant!: number;
   prenom !: string;
   nom !: string;
-  option !: string;
+  op !: string;
 contrat!: Contrat;
 
   //equipes !: [];

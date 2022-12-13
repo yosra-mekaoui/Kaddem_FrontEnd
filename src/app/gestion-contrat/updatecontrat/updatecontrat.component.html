@@ -7,24 +7,25 @@
           <i class="fa fa-angle-left" style="font-size:18px"></i>&nbsp;Retour
         </a>
         <h1>Update Contrat</h1>
-        <form  [formGroup]="reactiveForm"  (ngSubmit)="onSubmit()" class="mt-4">
+        <form   (ngSubmit)="onSubmit()" class="mt-4">
 
           <div class="form-group">
-            <input type="date" class="form-control" value="2008-05-13"  name="dateDebutContrat" formControlName="dateDebutContrat" [(ngModel)]="c.dateDebutContrat">
+            <input type="date" class="form-control"  name="dateDebutContrat" [ngModelOptions]="{standalone: true}"  [(ngModel)]="c.dateDebutContrat">
           </div>
           <div class="form-group">
-            <input type="date" class="form-control" name="dateFinContrat" value="2008-05-13" formControlName="dateFinContrat" [(ngModel)]="c.dateFinContrat">
+            <input type="date" class="form-control" name="dateFinContrat" value="2008-05-13"  [ngModelOptions]="{standalone: true}" [(ngModel)]="c.dateFinContrat">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control"  name="archive" formControlName="archive" [(ngModel)]="c.archive">
+            <label id="example-radio-group-label">Archive</label>
+             <input type="text" class="form-control"  name="archive" [ngModelOptions]="{standalone: true}" [(ngModel)]="c.archive">
           </div>
           <div class="form-group">
-            <input type="number" class="form-control"
-                   [(ngModel)]="c.montantContrat" name="montantContrat" formControlName="montantContrat">
+            <label class="mr-sm-2">montant</label>
+            <input type="number" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="c.montantContrat" name="montantContrat" >
           </div>
           <div class="form-group mb-4">
             <label class="mr-sm-2" for="specialite">Specialite</label>
-            <select class="custom-select mr-sm-2" id="specialite" [(ngModel)]="c.specialite" name="specialite" formControlName="specialite" >
+            <select class="custom-select mr-sm-2" id="specialite" [ngModelOptions]="{standalone: true}" [(ngModel)]="c.specialite" name="specialite">
               <option [ngValue]="null">Choisir votre specialite</option>
               <option *ngFor="let sp of specialite | keyvalue" [ngValue]="sp.value">{{sp.value}}</option>
             </select>
