@@ -9,6 +9,8 @@
 <a routerLink="/etudiant" style="margin-bottom: 20px ; " class="btn waves-effect waves-light btn-outline-warning">
     <i class="fa fa-angle-left" style="font-size:18px"></i>&nbsp;Retour
 </a>
+ 
+
 
 
 <div class="row">
@@ -46,7 +48,23 @@
                     </td>
                 </tr>
                 <br>
-        
+                
+
+                <tr>
+                    <td><label for="last-name">Date de Naissance : </label></td>
+                    <td><input id="last-name" type="date" class="form-control" formControlName="dateNaissance"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <small class="text-danger"
+                            *ngIf="etudiantForm.get('dateNaissance')?.hasError('required') && etudiantForm.get('dateNaissance')?.touched==true">
+                            La date de Naissance ne peut pas être vide.
+                        </small>
+                    </td>
+                </tr>
+                <br>
+
+                
                 <tr>
                     <td><label for="last-name">Option : </label></td>
                     <td>
@@ -85,8 +103,8 @@
     <div class="col-8">
         
         <!-- =================== CONTRATS =========================-->
-
-        <app-get-contrats [id]="id"></app-get-contrats>
+        <h2 style="color : black">Total Contrats : {{totalContrats}}</h2>
+        <app-get-contrats [id]="id" (newItemEvent)="updateTotalContrats($event)"></app-get-contrats>
 
 
     </div>
@@ -96,7 +114,10 @@
 
 
 <!--  ==================== EQUIPES ================================== -->
-<app-get-equipes [id]="id"></app-get-equipes>
+<hr style="margin : 50px ; ">
+
+<h2 style="color : black">Total Equipes : {{totalEquipes}}</h2>
+<app-get-equipes [id]="id" (newItemEvent)="updateTotalEquipes($event)"></app-get-equipes>
 
 
 

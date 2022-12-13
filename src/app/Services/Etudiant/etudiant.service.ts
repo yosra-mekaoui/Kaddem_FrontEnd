@@ -17,7 +17,7 @@ export class EtudiantService {
   url = "http://localhost:8189/kaddem/etudiant/"; 
   
   getAllUsers() : Observable<Etudiant[]>{
-    return this.http.get<[Etudiant]>(this.url+"all");
+    return this.http.get<[Etudiant]>("http://localhost:8189/kaddem/etudiant/all");
   }
 
   deleteUser(id: number) : Observable<Etudiant[]>{
@@ -76,5 +76,16 @@ export class EtudiantService {
     return this.http.put<Etudiant>("http://localhost:8189/kaddem/etudiant/removeEquipeAffecte/"+idEtudiant+"/"+idEquipe, null);
   }
 
+  pdfExport():Observable<Blob>{
+    return this.http.get("http://localhost:8189/kaddem/etudiant/etudiant/export/pdf", {responseType: 'blob'});
+  }
+
+  excelExport():Observable<Blob>{
+    return this.http.get("http://localhost:8189/kaddem/etudiant/export-to-excel", {responseType: 'blob'});
+  }
+  
+  pagination(nbre : number, page: number) : Observable<Etudiant[]>{
+    return this.http.get<[Etudiant]>(this.url+"pagination/"+nbre+"/"+page);
+  }
   
 }

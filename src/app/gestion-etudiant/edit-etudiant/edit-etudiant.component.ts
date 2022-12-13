@@ -21,6 +21,7 @@ export class EditEtudiantComponent implements OnInit {
     idEtudiant:[''],
     prenom: ['', Validators.required],
     nom: ['', Validators.required],
+    dateNaissance : ['', Validators.required],
     option: ['GAMIX'] 
   });
 
@@ -30,7 +31,8 @@ export class EditEtudiantComponent implements OnInit {
   
   id!: any;
   etudiant !: Etudiant;  
-
+  totalContrats = 0; 
+  totalEquipes = 0; 
   
 
   ngOnInit(): void {
@@ -64,8 +66,13 @@ export class EditEtudiantComponent implements OnInit {
 
 
   
-
+  updateTotalContrats(x: any) {
+    this.totalContrats = x; 
+  }
   
+  updateTotalEquipes(x: any) {
+    this.totalEquipes = x; 
+  }
 
 }
 

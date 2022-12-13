@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { EtudiantService } from 'src/app/Services/Etudiant/etudiant.service';
 import { Etudiant } from 'src/app/Models/Etudiant';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { Equipe } from 'src/app/Models/Equipe';
 })
 export class GetEquipesComponent implements OnInit {
   @Input() id = '';
-
+  @Output() newItemEvent = new EventEmitter<Number>();
   listEquipes: Equipe[] = [];   
   totalEquipes !: number;
   
@@ -33,6 +33,7 @@ export class GetEquipesComponent implements OnInit {
     { 
       this.listEquipes = data; 
       this.totalEquipes = this.listEquipes.length;
+      this.newItemEvent.emit(this.listEquipes.length); 
     }); 
   }
 

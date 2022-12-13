@@ -13,6 +13,7 @@ export class AddEtudiantComponent implements OnInit {
   etudiantForm = this.fb.group({
     prenom: ['', Validators.required],
     nom: ['', Validators.required],
+    dateNaissance : ['', Validators.required],
     option: ['GAMIX'] 
   });
   constructor(private fb: FormBuilder, private etudiantS : EtudiantService, private router: Router) { }

@@ -11,12 +11,52 @@
                 <h6 class="card-subtitle">  
                     <br>
                 <div class="row">
-                    <div class="col-6">
-                        <a type="button" routerLink="add" class="btn btn-success" data-toggle="modal" data-target="#bs-example-modal-sm">
+                    
+
+                    <div class="col-2">
+                        <a type="button" routerLink="add" class="btn btn-success" data-toggle="modal" data-target="#bs-example-modal-sm" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                             <i class="fa fa-plus" style="font-size:16px"></i>&nbsp; Ajouter Etudiant
                         </a>
                     </div>
-                    <div class="col-6">
+                    
+                    <div class="col-1" style="display: flex; align-items: center;">
+                        <span style="font-size: 20px; color: black;">Lignes : </span> 
+                    </div>
+
+                    <div class="col-1">
+                        
+                        <select class="form-control" [(ngModel)]="nombre" (change)="pagination(nombre,page)" >
+                            <option>Nombre de lignes</option>
+                            <option>4</option>
+                            <option>6</option>
+                            <option>8</option>
+                        </select> 
+
+                    </div>
+
+                    <div class="col-1" style="display: flex; align-items: center;">
+                        <span style="font-size: 20px; color : black ">Page : </span>
+                    </div>
+                    <div class="col-1">
+                        <input type="number" class="form-control" [(ngModel)]="page" (change)="pagination(nombre,page)" />
+                    </div>
+                    <div class="col-3">
+
+                        
+                        
+                         
+
+
+                        <button type="button" (click)="exportPDF()" class="btn btn-warning" data-toggle="modal" data-target="#bs-example-modal-sm" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                            <i class="fa fa-file-pdf-o" style="font-size:  16px"></i>&nbsp; PDF
+                        </button>
+                        &nbsp;
+                        <button type="button" (click)="exportExcel()" class="btn btn-warning" data-toggle="modal"
+                            data-target="#bs-example-modal-sm" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                            <i class="fa fa-file-excel-o" style="font-size:16px"></i>&nbsp; Excel
+                        </button>
+                    </div>
+                    <div class="col-3">
                         <input class="form-control" style="border : 1px solid rgba(27, 27, 27, 0.368) " placeholder="Rechercher étudiant..." [(ngModel)]="input" />   
                     </div>
                 </div>
@@ -31,6 +71,7 @@
                                 <th>Prenom</th>
                                 <th>Nom</th>
                                 <th>Option</th>
+                                <th>Date de Naissance</th>
                                 <th>Action</th> 
                             </tr>
                         </thead>
@@ -39,10 +80,11 @@
                                 <td>{{u.prenom}}</td>
                                 <td>{{u.nom}}</td>
                                 <td>{{u.option}}</td>
+                                <td>{{u.dateNaissance}}</td>
                                 <td>
-                                    <button type="button" style="margin-right: 20px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;" (click)="deleteEtudiant(u.idEtudiant)" class="btn btn-danger" data-toggle="modal" data-target="#danger-alert-modal">
+                                    <button type="button"   [ngClass]="['btn', 'btn-danger']" data-toggle="modal" data-target="#danger-alert-modal" style="margin-right: 20px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;" (click)="deleteEtudiant(u.idEtudiant)">
                                         <i class="fa fa-trash-o" style="font-size:18px"></i>  Delete
-                                    </button>
+                                    </button> 
                                     <button style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"  [routerLink]="['edit', u.idEtudiant]" class="btn waves-effect waves-light btn-warning">
                                         <i class="fa fa-edit" style="font-size:18px"></i> Edit
                                     </button>

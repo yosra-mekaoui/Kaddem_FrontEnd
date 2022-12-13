@@ -14,9 +14,11 @@ export class ListEtudiantsComponent implements OnInit {
 
   listEtudiants: Etudiant[] = [];
   input!: any; 
+  nombre = 4; 
+  page = 1;
   
   ngOnInit(): void {
-    this.getEtudiants(); 
+    this.pagination(this.nombre,this.page); 
     console.log(this.listEtudiants); 
   }
 
@@ -35,4 +37,55 @@ export class ListEtudiantsComponent implements OnInit {
     }); 
   }
 
+  exportPDF(){
+    this.etudiantS.pdfExport().subscribe(data=>{
+      const blob = new Blob([data], {type: 'application/pdf'});
+      if(window.navigator &&   (window.navigator as any).msSaveOrOpenBlob){
+        (window.navigator as any).msSaveOrOpenBlob(data);
+
+        return;
+      }
+      const data1 = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = data1;
+      link.download = "etudiant.pdf";
+      link.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
+      setTimeout(function(){
+        window.URL.revokeObjectURL(data1);
+        link.remove();
+      }, 100);
+    });
+
+  }
+
+
+  exportExcel(){
+    this.etudiantS.excelExport().subscribe(data=>{
+      const blob = new Blob([data], {type: 'application/pdf'});
+      if(window.navigator &&   (window.navigator as any).msSaveOrOpenBlob){
+        (window.navigator as any).msSaveOrOpenBlob(data);
+
+        return;
+      }
+      const data1 = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = data1;
+      link.download = "etudiant.xlsx";
+      link.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
+      setTimeout(function(){
+        window.URL.revokeObjectURL(data1);
+        link.remove();
+      }, 100);
+    });
+
+  }
+
+
+  pagination(nbre: number, page: number) {
+    this.etudiantS.pagination(nbre, page).subscribe(
+      data => {
+        this.listEtudiants = data
+      }
+    )
+  }
 }

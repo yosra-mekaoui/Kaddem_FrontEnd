@@ -3,6 +3,5 @@ export class Etudiant{
     prenom !: string; 
     nom !: string; 
     option !: string;
-    //contrats !: [];
-    //equipes !: []; 
+    public dateNaissance!: Date; 
 }

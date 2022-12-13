@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { EtudiantService } from 'src/app/Services/Etudiant/etudiant.service';
 import { Etudiant } from 'src/app/Models/Etudiant';
 import { Router } from '@angular/router';
@@ -19,7 +19,8 @@ export class GetContratsComponent implements OnInit {
   selectedContrat = '';
 
   @Input() id = '';
-  
+  @Output() newItemEvent = new EventEmitter<Number>();
+
   constructor(private etudiantS: EtudiantService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -33,13 +34,15 @@ export class GetContratsComponent implements OnInit {
     { 
       this.listContrats = data; 
       this.totalContrats = this.listContrats.length;
+      this.newItemEvent.emit(this.listContrats.length); 
     }); 
   }
 
   getContrats() {
     this.etudiantS.getAllContrats().subscribe(data =>
     { 
-      this.allContrats = data;  
+      this.allContrats = data; 
+      
     }); 
   }
 
