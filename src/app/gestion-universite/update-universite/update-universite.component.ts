@@ -44,6 +44,13 @@ console.log(this.myUniv)
     return this.reactiveForm.get('nomUniv');
   
   }
+  removeImage(idImage:number){
+    this.serviceUniv.deleteImg(this.myUniv.idUniv,idImage).subscribe( date=>
+      location.reload()
+    );
+    //this.R.navigate(['update/',this.myUniv.idUniv]);
+   
+  }
 
   update(){
 

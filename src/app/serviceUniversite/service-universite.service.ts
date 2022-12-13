@@ -18,7 +18,8 @@ export class ServiceUniversiteService {
   relation='http://localhost:8080/test/dep/assignUniversiteToDepartement/';
   listdepart='http://localhost:8080/test/univer/listdepart';
   pagination='http://localhost:8080/test/univer/all?pageNumber='
-  getimage="http://localhost:8080/test/univer/ListImagebyIduniv/"
+  getimage="http://localhost:8080/test/univer/ListImagebyIduniv/";
+  deleteImage="http://localhost:8080/test/univer/deleteImage/";
 d:any;
   Universite=[];
 
@@ -44,7 +45,9 @@ return this.http.get<any>(this.urlgetmaxid);
  relationdepart(idUniv:number,idDepart:number){
 return this.http.put(this.relation+idUniv+"/"+idDepart,this.d);
  }
-
+deleteImg(idUniv:number,idImage:number){
+return this.http.put(this.deleteImage+idUniv+"/"+idImage,this.d);
+}
  addWithImage(u: FormData){
   return this.http.post<universite>(this.addwithimage,u);
  }

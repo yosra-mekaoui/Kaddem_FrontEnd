@@ -11,8 +11,11 @@
         </div >
     </div>
  <div *ngFor="let filehandle of myUniv.images">
-    
-    <img src="data:{{filehandle.type}};base64,{{filehandle.picByte}}">
+    <div>
+        
+    <img  src="data:{{filehandle.type}};base64,{{filehandle.picByte}}">
+    <span class="btn-remove-image" (click)="removeImage(filehandle.imageId)">x</span>
+    </div>
      
  </div>
     <button type="submit" class="btn btn-primary" (click)="update()">update </button>
