@@ -7,36 +7,36 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ContratService {
-  private baseUrl = "http://localhost:8888/kaddem/contrat/all";
+  private baseUrl = "http://localhost:8189/kaddem/contrat/all";
   constructor(private httpClient: HttpClient) { }
   getContrat(): Observable<Contrat[]>{
     return this.httpClient.get<Contrat[]>(`${this.baseUrl}`);
   }
   deleteContrat(id: number): Observable<Object>{
-    return this.httpClient.delete(`http://localhost:8888/kaddem/contrat/remove/${id}`);
+    return this.httpClient.delete(`http://localhost:8189/kaddem/contrat/remove/${id}`);
   }
   createcontrat(contrat:Contrat): Observable<Object>{
-    return this.httpClient.post(`http://localhost:8888/kaddem/contrat/add`, contrat );
+    return this.httpClient.post(`http://localhost:8189/kaddem/contrat/add`, contrat );
   }
   getcontratById(id: number): Observable<Contrat>{
-    return this.httpClient.get<Contrat>(`http://localhost:8888/kaddem/contrat/get/${id}`);
+    return this.httpClient.get<Contrat>(`http://localhost:8189/kaddem/contrat/get/${id}`);
   }
 
   updatecontrat(id: number, contrat :Contrat): Observable<Object>{
-    return this.httpClient.put(`http://localhost:8888/kaddem/contrat/update`, contrat);
+    return this.httpClient.put(`http://localhost:8189/kaddem/contrat/update`, contrat);
   }
   pdf():Observable<Blob>
   {
-    return this.httpClient.get("http://localhost:8888/kaddem/export/pdf", {responseType: 'blob'});
+    return this.httpClient.get("http://localhost:8189/kaddem/export/pdf", {responseType: 'blob'});
   }
   nbcontratvalide(sdate:String,edate:String):Observable<number>{
-    return this.httpClient.get<number>(`http://localhost:8888/kaddem/contrat/nbContratsValides/${sdate}/${edate}`);
+    return this.httpClient.get<number>(`http://localhost:8189/kaddem/contrat/nbContratsValides/${sdate}/${edate}`);
 
   }
   notificationContrat():Observable<String>{
-    return this.httpClient.get<String>(`http://localhost:8888/kaddem/contrat/notification`);
+    return this.httpClient.get<String>(`http://localhost:8189/kaddem/contrat/notification`);
   }
   pagination(num:number,page:number):Observable<Contrat[]>{
-    return this.httpClient.get<Contrat[]>(`http://localhost:8888/kaddem/contrat/pagination/${num}/${page}`);
+    return this.httpClient.get<Contrat[]>(`http://localhost:8189/kaddem/contrat/pagination/${num}/${page}`);
   }
 }

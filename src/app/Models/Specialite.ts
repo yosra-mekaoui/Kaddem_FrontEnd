@@ -1,6 +1,6 @@
 export enum Specialite {
   IA="IA",
-  SECURITE="SECURITE",
+  SECURITE="SECURITY",
   CLOUD="CLOUD",
   RESEAUX="RESEAUX"
 }

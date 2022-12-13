@@ -12,7 +12,7 @@ import {AppComponent} from "./app.component";
 const routes: Routes = [
   
   {path: 'equipe', loadChildren: () => import('./equipe/equipe.module').then(e =>e.EquipeModule )},
-  {path:'experience',  loadChildren:() =>import('./experience/experience.module').then(m=>m.ExperienceModule)}
+  {path:'experience',  loadChildren:() =>import('./experience/experience.module').then(m=>m.ExperienceModule)},
   
 
 
