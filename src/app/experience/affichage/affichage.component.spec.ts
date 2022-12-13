@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExportExperienceComponent } from './export-experience.component';
+import { AffichageComponent } from './affichage.component';
 
-describe('ExportExperienceComponent', () => {
-  let component: ExportExperienceComponent;
-  let fixture: ComponentFixture<ExportExperienceComponent>;
+describe('AffichageComponent', () => {
+  let component: AffichageComponent;
+  let fixture: ComponentFixture<AffichageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExportExperienceComponent ]
+      declarations: [ AffichageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExportExperienceComponent);
+    fixture = TestBed.createComponent(AffichageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

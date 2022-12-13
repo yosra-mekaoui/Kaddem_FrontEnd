@@ -19,13 +19,15 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon'
 
 import { ServiceExperienceService } from 'src/app/service-experience.service';
+import { AffichageComponent } from './affichage/affichage.component';
 
 
 @NgModule({
   declarations: [
     ListExperienceComponent,
   
-    DialogExperienceComponent
+    DialogExperienceComponent,
+       AffichageComponent
   ],
   imports: [
     CommonModule,

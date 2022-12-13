@@ -1,13 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-
-import { Router } from '@angular/router';
-
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Experience } from 'src/app/Models/Experience';
 import { DialogExperienceComponent } from '../dialog-experience/dialog-experience.component';
-
 import { ServiceExperienceService } from 'src/app/service-experience.service';
-
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
@@ -19,6 +13,7 @@ import {MatTableDataSource} from '@angular/material/table';
   templateUrl: './list-experience.component.html',
   styleUrls: ['./list-experience.component.css']
 })
+
 export class ListExperienceComponent implements OnInit {
   displayedColumns: string[] = ['idExperience','type','titreDuProfil','dateDebutExperience','dateFinExperience','descriptif','lieu','actions'];
   dataSource!: MatTableDataSource<any>;
@@ -29,73 +24,68 @@ export class ListExperienceComponent implements OnInit {
   constructor(public dialog: MatDialog,
     private experienceService:ServiceExperienceService) {}
 
-openDialog() {
-this.dialog.open(DialogExperienceComponent, {
-width:'30%'
+    openDialog() {
+    this.dialog.open(DialogExperienceComponent, {
+    width:'30%'
 
-}).afterClosed().subscribe(val=>{
-if(val==='ajout'){
-this.getAllExperiences()
-}
-});
-}
+    }).afterClosed().subscribe(val=>{
+    if(val==='ajout'){
+    this.getAllExperiences()
+    }
+    });
+    }
 
-ngOnInit(): void {
-this.getAllExperiences()
+    ngOnInit(): void {
+      this.getAllExperiences()
 
-}
-
-
+    }
 
 
 
 
-getAllExperiences(){
-this.experienceService.getExperience()
-.subscribe({
-next: (res)=>{
-console.log(res);
-this.dataSource=new MatTableDataSource(res)
-console.log("heeeelooo");
 
-this.dataSource.paginator=this.paginator
-this.dataSource.sort=this.sort
+  nbr=0;
+    getAllExperiences(){
+    this.experienceService.getExperience()
+    .subscribe({
+    next: (res)=>{
+      this.nbr=res.length;// teb3a l'input property
+    console.log(res);
+    this.dataSource=new MatTableDataSource(res)
+    console.log("heeeelooo");
 
-},
-error:()=>{
-alert("erreur get all")
-}
+    this.dataSource.paginator=this.paginator
+    this.dataSource.sort=this.sort
 
-
-})
-
-
-
-}
-
-
-applyFilter(event: Event) {
-const filterValue = (event.target as HTMLInputElement).value;
-this.dataSource.filter = filterValue.trim().toLowerCase();
-
-if (this.dataSource.paginator) {
-this.dataSource.paginator.firstPage();
-}
-}
+    },
+    error:()=>{
+    alert("erreur get all")}})
+      }
 
 
 
-editExperience(row :any) {
-this.dialog.open(DialogExperienceComponent, {
-width:'30%',
-data:row
+    applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
 
-}).afterClosed().subscribe(val=>{
-if(val==='update'){
-this.getAllExperiences()
-}
-});;
-}
+    if (this.dataSource.paginator) {
+    this.dataSource.paginator.firstPage();
+    }
+    }
+
+
+
+      editExperience(row :any) {
+      this.dialog.open(DialogExperienceComponent, {
+      width:'30%',
+      data:row
+
+      }).afterClosed().subscribe(val=>{
+      if(val==='update'){
+      this.getAllExperiences()
+      }
+      });;
+      }
 
 
 
@@ -108,7 +98,7 @@ deleteExperience(id: number){
     alert("experience bien supprimer")
 
     this.getAllExperiences()
- 
+
 
 })
 }
@@ -123,21 +113,23 @@ if (nav.msSaveOrOpenBlob) {
   nav.msSaveOrOpenBlob(blob);
   return;
 }
-   
+
   const data = window.URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href= data;
   link.download="experience.pdf";
   link.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
-  
+
   setTimeout(function() {
     window.URL.revokeObjectURL(data);
     link.remove();
   }, 100);
 });
-  
+
   }
-  
+
+
+
   exportExperienceExcel(){
     this.experienceService.exportExcelExperiences().subscribe(x => {
       const blob = new Blob([x], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
@@ -159,6 +151,5 @@ if (n.msSaveOrOpenBlob) {
 });
 
   }
+
 }
-
-

@@ -20,22 +20,33 @@ export class DialogExperienceComponent implements OnInit {
   ngOnInit(): void {
     this.experienceForm=this.formBuilder.group({
 
-      titreDuProfil :['',Validators.required ],
-      type :['',Validators.required ],
+      titreDuProfil :['',[Validators.required,
+        Validators.pattern('[a-zA-Z ]*'), Validators.minLength(3)
+      ]],
+
+      type :['',[Validators.required,
+        Validators.pattern('[a-zA-Z ]*'), Validators.minLength(3)]],
+
       dateDebutExperience :['',Validators.required ],
       dateFinExperience :['',Validators.required ],
-      descriptif :['',Validators.required ],
-      lieu :['',Validators.required ],
+
+      descriptif :['',[Validators.required,
+        Validators.pattern('[a-zA-Z ]*'), Validators.minLength(3)]],
+
+      lieu :['',[Validators.required,
+        Validators.pattern('[a-zA-Z ]*'), Validators.minLength(3)]],
 
 
 
-  
+
 
     })
 
 
+
+
     console.log(this.editdata)
-    
+
     if(this.editdata){
       this.actionButton="Modifier"
       this.experienceForm.controls['titreDuProfil'].setValue(this.editdata.titreDuProfil)
@@ -44,7 +55,7 @@ export class DialogExperienceComponent implements OnInit {
       this.experienceForm.controls['dateFinExperience'].setValue(this.editdata.dateFinExperience)
       this.experienceForm.controls['descriptif'].setValue(this.editdata.descriptif)
       this.experienceForm.controls['lieu'].setValue(this.editdata.lieu)
-      
+
     }
 
 
@@ -70,8 +81,8 @@ export class DialogExperienceComponent implements OnInit {
           error:()=>{
             alert("erreur d'ajout")
           }
-  
-  
+
+
         })
       }
     }else{

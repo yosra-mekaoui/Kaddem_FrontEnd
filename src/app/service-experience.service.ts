@@ -12,19 +12,19 @@ export class ServiceExperienceService {
   urlUpdate='http://localhost:8080/test/dep/update/' // URL de l'API
 
   constructor(private http: HttpClient ) {
-    
+
    }
 
    getExperience(){
     return this.http.get<any>("http://localhost:8080/test/Experience/getAllExperience");
-  
+
   }
    /*getData(): Observable<Experience[]>{
     return this.http.get<Experience[]>(`${this.urlApi+"/getAllExperience"}`);
   }*/
 
 
- 
+
   deleteExperience(id: number) : Observable<Experience[]>{
     return this.http.delete<[Experience]>(this.urlApi+"/remove/"+id);
   }
@@ -33,7 +33,7 @@ export class ServiceExperienceService {
 
   postExperience(data : any){
     return this.http.post<any>("http://localhost:8080/test/Experience/add",data);
-  
+
   }
  /* addExperience(experience:Experience): Observable<Experience>{
     return this.http.post<Experience>(`${this.urlApi+"/add"}`,experience);
@@ -44,19 +44,19 @@ export class ServiceExperienceService {
     return this.http.put<any>("http://localhost:8080/test/Experience/update/"+id,data)
     }
   /*UpdateExperience(id:number, experience: Experience){
-    
-    
+
+
     return this.http.put(`${this.urlApi+"/update/"+id}`,experience);
    }
 */
    getExperienceById(id:Number){
      return this.http.get<Experience>(this.urlApi+"/get/"+id);
    }
-     
+
    exportPdfExperiences():Observable<Blob>{
     return this.http.get("http://localhost:8080/test/Experience/export/pdf", {responseType: 'blob' });
    }
-   exportExcelExperiences():Observable<Blob>{
+    exportExcelExperiences():Observable<Blob>{
     return this.http.get("http://localhost:8080/test/Experience/export/excel", {responseType: 'blob' });
 }
 }
