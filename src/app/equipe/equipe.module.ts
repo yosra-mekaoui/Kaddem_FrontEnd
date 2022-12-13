@@ -15,10 +15,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { EquipeServicesService } from './services/equipe-services.service';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import {MatIconModule} from '@angular/material/icon'
+import {MatIconModule} from '@angular/material/icon';
+import { DetailsEquipeComponent } from './details-equipe/details-equipe.component'
 
+import { HttpService } from './services/http.service';
 
-
+import { QRCodeModule } from 'angularx-qrcode';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 
 
@@ -29,7 +32,8 @@ import {MatIconModule} from '@angular/material/icon'
 @NgModule({
   declarations: [
     ListEquipeComponent,
-    DialogEquipeComponent
+    DialogEquipeComponent,
+    DetailsEquipeComponent
   ],
   imports: [
     CommonModule,
@@ -45,11 +49,13 @@ import {MatIconModule} from '@angular/material/icon'
     HttpClientModule,
     MatPaginatorModule,
     MatSortModule,
-    MatIconModule
+    MatIconModule,
+    QRCodeModule,
+    NgxQRCodeModule
 
 
     
   ],
-  providers: [EquipeServicesService],
+  providers: [EquipeServicesService,HttpService],
 })
 export class EquipeModule { }
