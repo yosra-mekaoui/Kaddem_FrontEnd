@@ -24,6 +24,7 @@
                         <tr *ngFor="let u of list">
                                 <td>{{u.idUniv}}</td>
                                 <td>{{u.nomUniv}}</td>
+                           
                               
                                <div *ngFor="let d of u.departements">
 
@@ -35,12 +36,20 @@
                               
                                 <td>
                                     <button type="button" style="margin-right: 20px;" (click)="DeleteUniv(u.idUniv)"  class="btn btn-danger" data-toggle="modal" data-target="#danger-alert-modal">Delete</button>
-                                    <a  class="btn waves-effect waves-light btn-warning">Edit</a>
+                                    <a  [routerLink]="['update',u.idUniv]" class="btn waves-effect waves-light btn-warning">Edit</a>
                                      
                                 </td> 
                             </tr>  
                         </tbody> 
                     </table>
+
+                    <ul class="pagination"><li class="paginate_button page-item previous disabled" id="default_order_previous">
+                        <a aria-controls="default_order" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                    </li><li class="paginate_button page-item" *ngFor="let p of pages; let i=index">
+                      
+                        <button aria-controls="default_order" data-dt-idx="1" tabindex="0" class="page-link" (click)="setpage(p,$event)">{{p}}</button>
+                    </li>
+                    <li class="paginate_button page-item next" id="default_order_next"><a href="#" aria-controls="default_order" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul>
                 </div>
             </div>
         </div>

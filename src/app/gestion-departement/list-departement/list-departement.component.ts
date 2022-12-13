@@ -9,7 +9,7 @@ import { ServiceDepartService } from 'src/app/service-depart.service';
   styleUrls: ['./list-departement.component.css']
 })
 export class ListDepartementComponent implements OnInit {
-
+  product:any[]=[]
 list:any[]=[]
   constructor(private serviceDepar:ServiceDepartService) { }
 

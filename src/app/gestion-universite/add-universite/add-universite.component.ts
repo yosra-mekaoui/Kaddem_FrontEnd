@@ -69,10 +69,10 @@ alert(this.universite.images)
     
     const c=this.prepareFormData(this.universite)
   
-    this.serviceUniv.addWithImage(c).subscribe( 
+    this.serviceUniv.addWithImage(c).subscribe( data=>{
+      this.serviceUniv.relationdepart(this.maxId+1,this.selectedObject.idDepart).subscribe();}
     );
-    this.serviceUniv.relationdepart(this.maxId+1,this.selectedObject.idDepart).subscribe(data=>{
-    });
+   
     this.R.navigate(['listUniv'])
   }
     
