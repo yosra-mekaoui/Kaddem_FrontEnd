@@ -1,0 +1,82 @@
+{
+  "ListEquipe": [
+    {
+      "name": "qs",
+      "niveau": "JUNIOR",
+      "nombreMax": 11,
+      "email": "yassine.dhane@neopolis-dev.com",
+      "logo": "dswx",
+      "id": 2
+    },
+    {
+      "name": "Yassine Dhane",
+      "niveau": "JUNIOR",
+      "nombreMax": 32,
+      "email": "admin@gmail.com",
+      "logo": "xwc",
+      "id": 3
+    },
+    {
+      "name": "ali",
+      "niveau": "JUNIOR",
+      "nombreMax": 11,
+      "email": "yassine.dhane@neopolis-dev.com",
+      "logo": "data.jpg",
+      "id": 7,
+      "detailEquipe": [
+        {
+          "id": 1,
+          "idDetailEquipe": 1,
+          "salle": "bb",
+          "thematique": 1,
+          "commentaire": "this is a comment",
+          "idequipe": 7
+        }
+      ]
+    },
+    {
+      "name": "aa",
+      "niveau": "JUNIOR",
+      "nombreMax": 20,
+      "email": "aa@bb.com",
+      "logo": "aa.jpg",
+      "id": 8
+    }
+  ],
+  "Equipe": [
+    {
+      "name": "aaa",
+      "niveau": "JUNIOR",
+      "nombreMax": 12,
+      "email": "admin@gmail.com",
+      "logo": "aa.jpg",
+      "id": 1
+    }
+  ],
+  "DetailsEquipe": [
+    {
+      "id": 1,
+      "idDetailEquipe": 1,
+      "salle": "bb",
+      "thematique": 1,
+      "commentaire": "this is a comment",
+      "idequipe": 7
+    },
+    {
+      "id": 2,
+      "idDetailEquipe": 2,
+      "salle": "comment",
+      "thematique": 1,
+      "commentaire": "this is a comment",
+      "idequipe": 1
+    },
+    {
+      "id": 3,
+      "idDetailEquipe": 3,
+      "salle": "aa",
+      "thematique": 1,
+      "commentaire": "this is a comment",
+      "idequipe": 3
+    }
+  ]
+}
