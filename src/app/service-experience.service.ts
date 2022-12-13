@@ -8,15 +8,15 @@ import {Observable} from "rxjs";
 })
 export class ServiceExperienceService {
 
-  urlApi = 'http://localhost:8080/test/Experience';  // URL de l'API
-  urlUpdate='http://localhost:8080/test/dep/update/' // URL de l'API
+  urlApi = 'http://localhost:8189/kaddem/Experience';  // URL de l'API
+  urlUpdate='http://localhost:8189/kaddem/dep/update/' // URL de l'API
 
   constructor(private http: HttpClient ) {
 
    }
 
    getExperience(){
-    return this.http.get<any>("http://localhost:8080/test/Experience/getAllExperience");
+    return this.http.get<any>("http://localhost:8189/kaddem/Experience/getAllExperience");
 
   }
    /*getData(): Observable<Experience[]>{
@@ -32,7 +32,7 @@ export class ServiceExperienceService {
 
 
   postExperience(data : any){
-    return this.http.post<any>("http://localhost:8080/test/Experience/add",data);
+    return this.http.post<any>("http://localhost:8189/kaddem/Experience/add",data);
 
   }
  /* addExperience(experience:Experience): Observable<Experience>{
@@ -41,7 +41,7 @@ export class ServiceExperienceService {
 
   updateExperience(data:any,id:number){
 
-    return this.http.put<any>("http://localhost:8080/test/Experience/update/"+id,data)
+    return this.http.put<any>("http://localhost:8189/kaddem/Experience/update/"+id,data)
     }
   /*UpdateExperience(id:number, experience: Experience){
 
@@ -54,9 +54,9 @@ export class ServiceExperienceService {
    }
 
    exportPdfExperiences():Observable<Blob>{
-    return this.http.get("http://localhost:8080/test/Experience/export/pdf", {responseType: 'blob' });
+    return this.http.get("http://localhost:8189/kaddem/Experience/export/pdf", {responseType: 'blob' });
    }
     exportExcelExperiences():Observable<Blob>{
-    return this.http.get("http://localhost:8080/test/Experience/export/excel", {responseType: 'blob' });
+    return this.http.get("http://localhost:8189/kaddem/Experience/export/excel", {responseType: 'blob' });
 }
 }
