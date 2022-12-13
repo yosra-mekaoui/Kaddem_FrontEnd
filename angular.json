@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "88e3f43e-d8e7-4263-b2e4-a2ddc354b3d5"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -28,6 +31,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css"
+
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css"
             ],
@@ -97,6 +102,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css"
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css"
             ],

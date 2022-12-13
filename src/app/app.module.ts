@@ -16,20 +16,26 @@ import { GestionContratModule } from './gestion-contrat/gestion-contrat.module';
 import {HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ExperienceModule } from './experience/experience.module';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent
-
-
-
+    
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+
+    ExperienceModule,
+    
+
     HttpClientModule,
     GestionEtudiantModule,
     GestionContratModule,

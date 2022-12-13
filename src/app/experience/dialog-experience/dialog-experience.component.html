@@ -1,0 +1,136 @@
+
+
+<h1 mat-dialog-title>Experience</h1>
+
+<div mat-dialog-content>
+
+    <form [formGroup]="experienceForm">
+
+
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>titreDuProfil</mat-label>
+        <input   formControlName="titreDuProfil"   matInput placeholder="titreDuProfil" />
+
+      <mat-error *ngIf="experienceForm.controls['titreDuProfil'].touched && experienceForm.controls['titreDuProfil'].hasError('required') ">
+        titreDuProfil <strong> requis</strong>
+      </mat-error>
+
+      <mat-error *ngIf="experienceForm.controls['titreDuProfil'].touched && experienceForm.controls['titreDuProfil'].hasError('pattern') ">
+        titreDuProfil doit contenir que des <strong>lettres</strong>
+
+      </mat-error>
+      <mat-error *ngIf="experienceForm.controls['titreDuProfil'].touched && experienceForm.controls['titreDuProfil'].hasError('minlength') ">
+        titreDuProfil doit contenir au minimum <strong>3 lettres</strong>
+
+      </mat-error>
+
+
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>type</mat-label>
+        <input   formControlName="type"   matInput placeholder="type" />
+      <mat-error *ngIf="experienceForm.controls['type'].touched && experienceForm.controls['type'].hasError('required') ">
+        type <strong> requis</strong>
+      </mat-error>
+
+      <mat-error *ngIf="experienceForm.controls['type'].touched && experienceForm.controls['type'].hasError('pattern') ">
+        type doit contenir que des <strong>lettres</strong>
+
+      </mat-error>
+      <mat-error *ngIf="experienceForm.controls['type'].touched && experienceForm.controls['type'].hasError('minlength') ">
+        type doit contenir au minimum <strong>3 lettres</strong>
+
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>dateDebutExperience</mat-label>
+        <input  type="date" formControlName="dateDebutExperience"   matInput placeholder="dateDebutExperience" />
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>dateFinExperience</mat-label>
+        <input  type="date" formControlName="dateFinExperience"   matInput placeholder="dateFinExperience" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>descriptif</mat-label>
+        <input   formControlName="descriptif"   matInput placeholder="descriptif" />
+      <mat-error *ngIf="experienceForm.controls['descriptif'].touched && experienceForm.controls['descriptif'].hasError('required') ">
+        descriptif <strong> requis</strong>
+      </mat-error>
+
+      <mat-error *ngIf="experienceForm.controls['descriptif'].touched && experienceForm.controls['descriptif'].hasError('pattern') ">
+        descriptif doit contenir que des <strong>lettres</strong>
+
+      </mat-error>
+      <mat-error *ngIf="experienceForm.controls['descriptif'].touched && experienceForm.controls['descriptif'].hasError('minlength') ">
+        descriptif doit contenir au minimum <strong>3 lettres</strong>
+
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>lieu</mat-label>
+        <input   formControlName="lieu"   matInput placeholder="lieu" />
+      <mat-error *ngIf="experienceForm.controls['lieu'].touched && experienceForm.controls['lieu'].hasError('required') ">
+        lieu <strong> requis</strong>
+      </mat-error>
+
+      <mat-error *ngIf="experienceForm.controls['lieu'].touched && experienceForm.controls['lieu'].hasError('pattern') ">
+        lieu doit contenir que des <strong>lettres</strong>
+
+      </mat-error>
+      <mat-error *ngIf="experienceForm.controls['lieu'].touched && experienceForm.controls['lieu'].hasError('minlength') ">
+        lieu doit contenir au minimum <strong>3 lettres</strong>
+
+      </mat-error>
+    </mat-form-field>
+
+
+
+     <div mat-dialog-actions [align]="'end'">
+
+        <button style="margin-right: 5px;" mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+
+        <button mat-raised-button color="primary" (click)="addExperience()"
+                [ngStyle]="{'background-color': !experienceForm.valid   ? '' : '#22ca80'  , 'color' : !experienceForm.valid ? 'black' : 'white'  }"
+
+        >{{actionButton}}</button>
+
+
+     </div>
+
+
+
+
+
+
+
+
+    </form>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
