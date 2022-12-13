@@ -1,0 +1,90 @@
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <a routerLink="/contrat/listContrat" style="margin-bottom: 20px ; " class="btn waves-effect waves-light btn-outline-warning">
+          <i class="fa fa-angle-left" style="font-size:18px"></i>&nbsp;Retour
+        </a>
+        <h1>Add Contrat</h1>
+        <form  [formGroup]="reactiveForm"  class="mt-auto">
+          <label class="mr-sm-2">Date debut</label>
+          <div class="form-group">
+
+            <mat-form-field color="accent" appearance="legacy">
+              <mat-datepicker-toggle matIconSuffix [for]="picker1" ></mat-datepicker-toggle>
+              <input  matInput [matDatepicker]="picker1"  class="form-control" formControlName="dateDebutContrat" id="dateDebutContrat">
+
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <small class="text-danger" *ngIf="reactiveForm.get('dateDebutContrat')?.hasError('required') && reactiveForm.get('dateDebutContrat')?.touched==true ">
+              date debut est vide
+            </small>
+          </div>
+
+          <label class="mr-sm-2">Date fin</label>
+          <div class="form-group">
+
+            <mat-form-field color="accent" appearance="legacy">
+              <mat-datepicker-toggle matIconSuffix [for]="picker2" ></mat-datepicker-toggle>
+              <input  matInput [matDatepicker]="picker2"  class="form-control" formControlName="dateFinContrat" >
+
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <small class="text-danger" *ngIf="reactiveForm.get('dateFinContrat')?.hasError('required') && reactiveForm.get('dateFinContrat')?.touched==true ">
+              date fin est vide
+            </small>
+          </div>
+
+          <div class="form-group">
+
+          <!--  <input type="text" class="form-control"  name="archive" [(ngModel)]="contrat.archive">-->
+            <label id="example-radio-group-label">Archive</label>
+            <mat-radio-group
+              name="archive"
+              aria-labelledby="example-radio-group-label"
+              class="example-radio-group"
+              formControlName="archive" id="archive">
+              <mat-radio-button class="example-radio-button" *ngFor="let boolean of boo" [value]="boolean">
+                {{boolean}}
+              </mat-radio-button>
+            </mat-radio-group>
+            <small class="text-danger" *ngIf="reactiveForm.get('archive')?.hasError('required') && reactiveForm.get('archive')?.touched==true ">
+              archive est vide
+            </small>
+          </div>
+          <div class="form-group">
+            <label class="mr-sm-2">Montant</label>
+            <input type="number" class="form-control"
+                  id="montantContrat" formControlName="montantContrat">
+          </div>
+          <small class="text-danger" *ngIf="reactiveForm.get('montantContrat')?.hasError('required') && reactiveForm.get('montantContrat')?.touched==true ">
+            montant contrat est vide
+          </small>
+          <div class="form-group mb-4">
+            <label class="mr-sm-2" for="specialite">Specialite</label>
+            <select class="custom-select mr-sm-2" id="specialite"  formControlName="specialite" >
+              <option [ngValue]="null" selected>Choisir votre specialite</option>
+              <option *ngFor="let sp of specialite | keyvalue" [ngValue]="sp.value">{{sp.value}}</option>
+            </select>
+            <small class="text-danger" *ngIf="reactiveForm.get('specialite')?.hasError('required') && reactiveForm.get('specialite')?.touched==true ">
+              specialite est vide
+            </small>
+
+          </div>
+          <!-- change  button color when it's valid-->
+
+
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <button class="btn btn-outline-success" type="submit" (click)="savecontrat()"
+                    [disabled]="!reactiveForm.valid"
+                    [ngStyle]="{'background-color': !reactiveForm.valid   ? '' : '#1AFF00FF'  , 'color' : !reactiveForm.valid ? '#ff0000' : 'white'  }"
+            ><i class="fa fa-plus"></i>
+              Ajouter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
