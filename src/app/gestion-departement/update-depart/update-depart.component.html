@@ -1,0 +1,14 @@
+<form [formGroup]="reactiveForm">
+
+    <div class="card-body">
+        <h4 class="card-title">Nom departement</h4>
+        <div class="mt-4">
+            <div class="form-group">
+                <input type="text"formControlName="nomDepart" class="form-control" name="nomDepart"  id="nomDepart">
+            </div>
+            <div class="alter alter-danger" id="updateField" *ngIf="nomDepart?.errors?.['required'] && nomDepart?.touched" > idDepart is required</div>
+    
+        </div >
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="update()">update </button>
+</form>

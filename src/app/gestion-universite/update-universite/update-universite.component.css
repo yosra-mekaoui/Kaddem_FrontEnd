@@ -1,0 +1,32 @@
+mat-grid-tile{
+    border: 1px solid #eee;
+}
+.btn-remove-image{
+   cursor: pointer;
+    
+    color: white;
+    border-radius: 100% !important;
+
+    text-align: center;
+}
+#divImg{
+    
+}
+.submit{
+margin: 10px;
+}
+
+#univImg{
+    margin-bottom: 20px;
+    height: 200px;
+    width: 200px;
+}
+#imagecontainer{
+   display: flex;
+   flex-direction: row;
+   
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+   
+}
+

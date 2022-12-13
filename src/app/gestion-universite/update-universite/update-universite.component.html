@@ -1,0 +1,34 @@
+<form [formGroup]="reactiveForm">
+
+    <div class="card-body">
+        <h4 class="card-title">Nom Universite</h4>
+        <div class="mt-4">
+            <div class="form-group">
+                <input type="text"formControlName="nomUniv" class="form-control" name="nomUniv"  id="nomUniv">
+            </div>
+            <div class="alter alter-danger" id="updateField" *ngIf="nomUniv?.errors?.['required'] && nomUniv?.touched" > idDepart is required</div>
+    
+        </div >
+    </div>  
+    <div id="imagecontainer">
+        <div *ngFor="let filehandle of myUniv.images" >
+            <div id="divImg">
+                            <img id="univImg" src="data:{{filehandle.type}};base64,{{filehandle.picByte}}">
+                
+                
+        
+                <span class="btn-remove-image" (click)="removeImage(filehandle.imageId)">
+                    <button mat-mini-fab aria-label="Delete">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                </span>
+                
+                    
+            </div>
+             
+         </div>
+    </div>
+ 
+    <button type="submit" class="btn btn-primary" (click)="update()">update </button>
+    
+</form>
