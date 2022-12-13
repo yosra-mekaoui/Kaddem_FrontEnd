@@ -13,7 +13,7 @@
             <div class="form-group">
                 <input type="text" [(ngModel)]="universite.nomUniv" class="form-control" name="nomUniv"  id="nomUniv" required >
             </div>
-            <div class="alter alter-danger" *ngIf="nomUniv?.errors?.['required'] && nomUniv?.touched"> idDepart is required</div>
+             <div class="alter alter-danger" *ngIf="nomUniv?.errors?.['required'] && nomUniv?.touched"> idDepart is required</div>
      
         </div >
     </div>
@@ -32,11 +32,13 @@
     (change)="onFileSelected($event)"
     >
 </div> <br><br>
+
 <div>
     <mat-grid-list cols="4" rowHeight="1:1">
         <mat-grid-tile *ngFor="let file of universite.images; let i=index;">
             <div>
                 <span class="btn-remove-image" (click)="removeImage(i)">x</span>
+              
             <img [src]="file.url" width="100px" height="100px">
             </div>
         </mat-grid-tile>

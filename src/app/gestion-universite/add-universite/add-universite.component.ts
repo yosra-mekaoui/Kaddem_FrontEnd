@@ -16,11 +16,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class AddUniversiteComponent implements OnInit {
   list:any[]=[];
   selectedObject !:Departement;
+  theValue!:any;
   maxId!:number;
  
   u: universite =new universite();
   o:any;
-  theValue!:any;
+ 
   universite:universite={
     idUniv:0,
     nomUniv:"",

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Departement } from 'src/app/Models/Departement';
 import { FileHandle } from 'src/app/Models/file-handle.model';
 import { universite } from 'src/app/Models/Universite';
 import { ServiceUniversiteService } from 'src/app/serviceUniversite/service-universite.service';
@@ -12,13 +13,16 @@ import { ServiceUniversiteService } from 'src/app/serviceUniversite/service-univ
   styleUrls: ['./update-universite.component.css']
 })
 export class UpdateUniversiteComponent implements OnInit {
-  
+  list:any[]=[];
+  selectedObject !:Departement;
+  theValue!:any;
   myUniv!:any;
   reactiveForm=this.fb.group(
     {
        idUniv:[''],
       nomUniv:[''],
-      
+      departements:[],
+      images:[]
     }
   );
   u!:universite;
@@ -51,16 +55,32 @@ console.log(this.myUniv)
     //this.R.navigate(['update/',this.myUniv.idUniv]);
    
   }
+  numSequence(n: number): Array<number> {
+    return Array(n);
+  }
   update(){
+   this.myUniv.nomUniv=this.reactiveForm.value.nomUniv;
+    this.serviceUniv.UpdateDepart(this.myUniv.idUniv,this.myUniv).subscribe(data=>{
 
-    this.serviceUniv.UpdateDepart(this.myUniv.idUniv,this.reactiveForm.value).subscribe(data=>{
-  
-    this.R.navigate(['listUniv']);
+      this.R.navigate(['listUniv']);
     }
     )
     
   }
-
+  onFileSelected(event:any){
+    console.log(event);
+ if(event.target.files){
+   const file=event.target.files[0]; 
+   const FileHandle:FileHandle={
+     file: file,
+     url:this.sanitizer.bypassSecurityTrustUrl(
+       window.URL.createObjectURL(file)
+     )
+   }
+ this.myUniv.images.push(FileHandle);
+ alert(this.myUniv.images)
+ }
+   }
 
   public image(){
     

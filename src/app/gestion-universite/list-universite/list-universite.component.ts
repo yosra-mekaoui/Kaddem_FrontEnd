@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { universite } from 'src/app/Models/Universite';
 import { ServiceUniversiteService } from 'src/app/serviceUniversite/service-universite.service';
 
@@ -10,7 +11,7 @@ import { ServiceUniversiteService } from 'src/app/serviceUniversite/service-univ
 export class ListUniversiteComponent implements OnInit {
   list:universite[]=[];
  // pages!:Array<number>;
-  constructor(private serviceUniv:ServiceUniversiteService) { }
+  constructor(private serviceUniv:ServiceUniversiteService,private R:Router) { }
 pages=[0,1,2,3,4]
 page=0;
 libelle:string="";
@@ -32,6 +33,7 @@ libelle:string="";
     )
       
   }
+ 
   getWtithpagination(){
    // alert(this.page)
     this.serviceUniv.getWtithpagination(this.page).subscribe(data=>{

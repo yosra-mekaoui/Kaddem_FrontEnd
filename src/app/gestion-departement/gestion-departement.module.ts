@@ -6,6 +6,17 @@ import { ListDepartementComponent } from './list-departement/list-departement.co
 import { AddDepartComponent } from './add-depart/add-depart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateDepartComponent } from './update-depart/update-depart.component';
+/***************************ANGULAR MATERIEL ADDED*************************** */
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
+import {MatInput, MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+
+/*************************** END MATERIAL ADDED*************************** */
  
 @NgModule({
   declarations: [
@@ -19,7 +30,14 @@ import { UpdateDepartComponent } from './update-depart/update-depart.component';
     GestionDepartementRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatCardModule,
+    MatExpansionModule
   ],
   exports: [
     ListDepartementComponent
