@@ -11,33 +11,16 @@
         <h4 class="card-title">Nom universite</h4>
         <div class="mt-4">
             <div class="form-group">
-                <input type="text"  [(ngModel)]="universite.nomUniv" class="form-control" name="nomUniv"  id="nomUniv">
+                <input type="text" [(ngModel)]="universite.nomUniv" class="form-control" name="nomUniv"  id="nomUniv" required >
             </div>
-           <!-- <div class="alter alter-danger" *ngIf="nomUniv?.errors?.['required'] && nomUniv.touched"> nom is required</div>-->
-    
+            <div class="alter alter-danger" *ngIf="nomUniv?.errors?.['required'] && nomUniv?.touched"> idDepart is required</div>
+     
         </div >
     </div>
-    <!--
-    <div class="card-body">
-        <h4 class="card-title">Nom departement</h4>
-        <div class="mt-4">
-            <div class="form-group">
-                <select   formControlName="departements" class="form-control" name="departements"  id="departements" [(ngModel)]="selectedObject">
-                    <option *ngFor="let c of list"  [ngValue]="c" >{{c.nomDepart}}</option>
-                   </select> 
-            </div>
-          
-        </div >
-    </div>{{selectedObject | json}}-->
-    
- 
+   
 </form>
  
-   <div class="form-group">
-        <label for="theNumber">InputNumber</label>
-        <input type="text" [(ngModel)]="theValue"  id="theNumber"/>
-    </div>
-    <p>{{theValue}}</p>
+<h4 class="card-title">Nom Departement</h4>
  <div *ngFor="let n of numSequence(theValue)">
     <select  [(ngModel)]="selectedObject">
         <option *ngFor="let c of list"  [ngValue]="c" >{{c.nomDepart}}</option>

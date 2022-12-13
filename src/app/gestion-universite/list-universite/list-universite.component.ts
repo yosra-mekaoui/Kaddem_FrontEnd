@@ -13,6 +13,7 @@ export class ListUniversiteComponent implements OnInit {
   constructor(private serviceUniv:ServiceUniversiteService) { }
 pages=[0,1,2,3,4]
 page=0;
+libelle:string="";
   ngOnInit(): void {
    this.getListUniv();
   }

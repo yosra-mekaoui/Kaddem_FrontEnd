@@ -7,11 +7,13 @@ import { AddUniversiteComponent } from './add-universite/add-universite.componen
 import {MatGridListModule} from '@angular/material/grid-list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateUniversiteComponent } from './update-universite/update-universite.component';
+import { StatComponent } from './stat/stat.component';
 @NgModule({
   declarations: [
     ListUniversiteComponent,
     AddUniversiteComponent,
-    UpdateUniversiteComponent
+    UpdateUniversiteComponent,
+    StatComponent
   ],
   imports: [
     CommonModule,

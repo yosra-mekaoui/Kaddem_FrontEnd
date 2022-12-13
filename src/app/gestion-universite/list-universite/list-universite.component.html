@@ -10,8 +10,11 @@
                     <a type="button" routerLink="add" class="btn btn-success" data-toggle="modal" data-target="#bs-example-modal-sm">Ajouter universite</a>
                      
                 </h6>
+                <input matInput placeholder="rechercher" type="search" [(ngModel)]="libelle"/>
+
                 <div class="table-responsive">
                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
+               
                         <thead>
                             <tr>
                                 <th>Prenom</th>
@@ -20,8 +23,12 @@
                                 <th>Action</th> 
                             </tr>
                         </thead>
-                        <tbody> 
-                        <tr *ngFor="let u of list">
+                        <tbody  *ngFor="let u of list"> 
+                        <tr
+                        [hidden]="
+          !(u.nomUniv.toUpperCase().indexOf(libelle.toUpperCase()) != -1)
+        ">
+                           
                                 <td>{{u.idUniv}}</td>
                                 <td>{{u.nomUniv}}</td>
                            
@@ -39,7 +46,9 @@
                                     <a  [routerLink]="['update',u.idUniv]" class="btn waves-effect waves-light btn-warning">Edit</a>
                                      
                                 </td> 
-                            </tr>  
+                           
+                            </tr> 
+                             
                         </tbody> 
                     </table>
 

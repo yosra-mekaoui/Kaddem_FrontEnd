@@ -11,6 +11,7 @@ import { ServiceDepartService } from 'src/app/service-depart.service';
 export class ListDepartementComponent implements OnInit {
   product:any[]=[]
 list:any[]=[]
+libelle:string="";
   constructor(private serviceDepar:ServiceDepartService) { }
 
   ngOnInit(): void {

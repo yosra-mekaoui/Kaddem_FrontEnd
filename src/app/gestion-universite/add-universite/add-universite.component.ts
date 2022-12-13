@@ -17,6 +17,7 @@ export class AddUniversiteComponent implements OnInit {
   list:any[]=[];
   selectedObject !:Departement;
   maxId!:number;
+ 
   u: universite =new universite();
   o:any;
   theValue!:any;

@@ -51,9 +51,14 @@ console.log(this.myUniv)
     //this.R.navigate(['update/',this.myUniv.idUniv]);
    
   }
-
   update(){
 
+    this.serviceUniv.UpdateDepart(this.myUniv.idUniv,this.reactiveForm.value).subscribe(data=>{
+  
+    this.R.navigate(['listUniv']);
+    }
+    )
+    
   }
 
 

@@ -12,7 +12,7 @@ export class ServiceUniversiteService {
   urlDel='http://localhost:8080/test/univer/delete/' ;
   urlAdd='http://localhost:8080/test/univer/add' ;
   addwithimage='http://localhost:8080/test/univer/addWithImage';
-  urlUpdate='http://localhost:8080/test/dep/updateDepar';
+  urlUpdate='http://localhost:8080/test/univer/update';
   getbyid="http://localhost:8080/test/univer/get/"
   urlgetmaxid='http://localhost:8080/test/univer/maxid';
   relation='http://localhost:8080/test/dep/assignUniversiteToDepartement/';
@@ -57,11 +57,7 @@ return this.http.put(this.deleteImage+idUniv+"/"+idImage,this.d);
       ;
 
 } 
-/*
- getData():Observable<universite[]> {
-    return this.http.get<universite[]>(this.urlApi);
-}
-*/
+ 
 listedepart():Observable<Departement[]>{
 return this.http.get<Departement[]>(this.listdepart);
 }
@@ -71,4 +67,9 @@ getDepartById(id:Number){
 getImageById(id:Number){
   return this.http.get<any>(this.getimage+id);
 }
+UpdateDepart(id:number, d: Departement){
+  
+  return this.http.put<Departement>(this.urlUpdate,d);
+  
+ }
 }
