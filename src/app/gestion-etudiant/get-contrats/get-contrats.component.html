@@ -1,0 +1,68 @@
+<!--h2 style="color : black">
+    Nombre total des contrats : {{totalContrats}}
+
+</h2-->
+
+
+<div class="container" style="margin-bottom: 20px;">
+    <div class="row">
+        <div class="col-3">
+            <select #contrats (change)="onSelected(contrats.value)" class="form-control">
+                <option disabled selected>Contrat</option>
+                <option *ngFor="let u of allContrats">
+                    {{u.idContrat}}
+                </option>
+            </select>
+        </div>
+        <div class="col-4">
+            <button class="btn waves-effect waves-light btn-outline-success" type="submit" (click)="assignContratToEtudiant()"
+                style="margin-left : 30px; ">
+                <i class="fa fa-plus" style="font-size:16px"></i>
+                Affecter Contrat
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+    <table id="zero_config" class="table table-striped table-bordered no-wrap">
+        <thead>
+            <tr>
+                <th>Contrat</th>
+                <th>Date Debut</th>
+                <th>Date Fin</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="totalContrats == 0">
+                <td colspan="4">
+                    Cet étudiant n'a pas été encore affécté à aucun contrat.
+                </td>
+            </tr>
+            <tr *ngFor="let u of listContrats">
+                <td>{{u.idContrat}}</td>
+                <td>{{u.dateDebutContrat}}</td>
+                <td>{{u.dateFinContrat}}</td>
+
+
+                <td>
+                    <button type="button" (click)="deleteContrat(u.idContrat)" style="margin-right: 20px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+                        class="btn btn-danger" data-toggle="modal" data-target="#danger-alert-modal">
+                        <i class="fa fa-trash-o" style="font-size:18px"></i> Delete
+                    </button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

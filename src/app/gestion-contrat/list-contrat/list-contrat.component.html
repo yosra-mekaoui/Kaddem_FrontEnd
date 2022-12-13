@@ -1,0 +1,130 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+<div class="row">
+  <div class="card">
+    <div class="col-12">
+      <div class="card-body">
+
+        <h1 class="card-title" >List Contrat</h1>
+      <h2 style="color:black"> <app-affichage [total]="totalContrats"></app-affichage> </h2>
+        <div class="container">
+          <div class="row">
+
+          <button style="margin-bottom: 10px;" class=" btn btn-rounded btn-outline-danger" routerLink="/contrat/addContrat"><i class="fa fa-file-text-o"  style="font-size:18px"> Ajouter Contrat</i>
+          </button>
+            <div class="col-2">
+
+
+
+              <select [ngClass]="['form-control']" [(ngModel)]="num" (change)="pagination()">
+            <option selected>Nombre de lignes</option>
+            <option>4</option>
+            <option>6</option>
+            <option>8</option>
+          </select>
+              </div>
+            <div class="col-2">
+          <input type="number" class="form-control" [(ngModel)]="page" (change)="pagination()" />
+              </div>
+            <div class="col-2">
+              <input type="text"  class="form-control float-right" placeholder="Search" name="search" [(ngModel)]="searchText" (input)="search()">
+
+
+            </div>
+
+
+
+        </div>
+        </div>
+
+        <div class="row">  <!-- start row -->
+
+          <div class="col-11">
+            <div class="table-responsive">
+              <table id="default_order" class="table table-striped table-bordered display no-wrap"
+                     style="width:100%">
+                <thead>
+                <tr>
+                  <th>id</th>
+                  <th>Date debut</th>
+                  <th>Date Fin</th>
+                  <th>Archive</th>
+                  <th>Montant</th>
+                  <th>Specialite</th>
+                  <th>Etudiant</th>
+                  <th></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let u of listcontrat |  filter:searchText  " >
+
+                  <td>{{u.idContrat}}</td>
+                  <td>{{u.dateDebutContrat}}</td>
+                  <td>{{u.dateFinContrat}}</td>
+                  <td>{{u.archive}}</td>
+                  <td>{{u.montantContrat}}</td>
+                  <td>{{u.specialite}}</td>
+                  <td>{{u.etudiant?.nom}}</td>
+                  <td>
+
+
+                    <button type="button" style="margin-right: 20px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"  (click) = "deletecontrat(u.idContrat)" class="btn btn-rounded btn-outline-danger" data-toggle="modal" data-target="#danger-alert-modal">
+                      <i class="fa fa-trash" style="font-size:18px;color:black"></i>
+                    </button>
+                    <button style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;" [routerLink]="['/contrat/updateContrat',u.idContrat]" class="btn btn-rounded btn-outline-warning">
+                      <i class="fa fa-edit" style="font-size:18px"></i>
+                    </button>
+
+
+
+
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+
+
+ <!-- end row -->
+
+        <button  class=" btn btn-rounded btn-outline-dark" (click)="pdf()">
+          <i class="fa fa-file-pdf-o" style="font-size:18px"></i>
+        </button>
+
+
+              <form  [formGroup]="contrat">
+                <label class="mr-sm-2">Date debut</label>
+                <div class="form-group">
+
+
+                    <input  type="date"  class="form-control" formControlName="sdate" >
+
+
+
+                </div>
+                <label class="mr-sm-2">Date fin</label>
+                <div class="form-group">
+
+
+                    <input   type="date" class="form-control" formControlName="edate" >
+
+
+
+                </div>
+                <button class=" btn btn-squared btn-outline-dark" (click)="nbcontratvalide()"> Nombre du contrat valide</button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+
+    </div>
+
+  </div>
+
