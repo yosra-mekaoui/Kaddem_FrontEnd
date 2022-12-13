@@ -1,0 +1,44 @@
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <a routerLink="/contrat/listContrat" style="margin-bottom: 20px ; " class="btn waves-effect waves-light btn-outline-warning">
+          <i class="fa fa-angle-left" style="font-size:18px"></i>&nbsp;Retour
+        </a>
+        <h1>Update Contrat</h1>
+        <form   (ngSubmit)="onSubmit()" class="mt-4">
+
+          <div class="form-group">
+            <input type="date" class="form-control"  name="dateDebutContrat" [ngModelOptions]="{standalone: true}"  [(ngModel)]="contrat.dateDebutContrat">
+          </div>
+          <div class="form-group">
+            <input type="date" class="form-control" name="dateFinContrat" value="2008-05-13"  [ngModelOptions]="{standalone: true}" [(ngModel)]="contrat.dateFinContrat">
+          </div>
+          <div class="form-group">
+            <label id="example-radio-group-label">Archive</label>
+             <input type="text" class="form-control"  name="archive" [ngModelOptions]="{standalone: true}" [(ngModel)]="contrat.archive">
+          </div>
+          <div class="form-group">
+            <label class="mr-sm-2">montant</label>
+            <input type="number" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="contrat.montantContrat" name="montantContrat" >
+          </div>
+          <div class="form-group mb-4">
+            <label class="mr-sm-2" for="specialite">Specialite</label>
+            <select class="custom-select mr-sm-2" id="specialite" [ngModelOptions]="{standalone: true}" [(ngModel)]="contrat.specialite" name="specialite">
+              <option [ngValue]="null">Choisir votre specialite</option>
+              <option *ngFor="let sp of specialite | keyvalue" [ngValue]="sp.value">{{sp.value}}</option>
+            </select>
+
+
+          </div>
+          <button type="submit"   class="btn btn-outline-success">
+            <i class="fa fa-edit"></i>
+            Modifier
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

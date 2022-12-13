@@ -1,0 +1,140 @@
+
+
+<h1 mat-dialog-title>Ajouter une Equipe</h1>
+
+<div mat-dialog-content>
+
+    <form [formGroup]="equipeForm">
+
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>Nom equipe</mat-label>
+        <input   formControlName="nomEquipe"   matInput placeholder="Nom" />
+
+
+        <mat-error *ngIf="equipeForm.controls['nomEquipe'].touched && equipeForm.controls['nomEquipe'].hasError('required') ">
+            nom de l'equipe est <strong> requis</strong>
+        </mat-error>
+
+        <mat-error *ngIf="equipeForm.controls['nomEquipe'].touched && equipeForm.controls['nomEquipe'].hasError('pattern') ">
+            nom de l'equipe doit contenir que des <strong>lettres</strong>
+
+        </mat-error>
+        <mat-error *ngIf="equipeForm.controls['nomEquipe'].touched && equipeForm.controls['nomEquipe'].hasError('minlength') ">
+             nom de l'equipe doit contenir au minimum <strong>3 lettres</strong>
+
+        </mat-error>
+
+
+    </mat-form-field>
+
+    <label id="example-radio-group-label">Niveau</label>
+
+    <mat-radio-group  formControlName="niveau"
+     aria-labelledby="example-radio-group-label"   class="example-radio-group" >
+
+        <mat-radio-button class="example-radio-button" *ngFor="let niveau of ListNveau" [value]="niveau" >
+          {{niveau | lowercase}}
+        </mat-radio-button>
+
+        <mat-error *ngIf="equipeForm.controls['niveau'].touched && equipeForm.controls['niveau'].hasError('required') ">
+            niveau est <strong> requis</strong>
+       </mat-error>
+
+    </mat-radio-group>
+
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre maximum des membres</mat-label>
+        <input type="number"    formControlName="nbrDesMembresMax" matInput  placeholder="Nombre maximum" >
+
+        <mat-error *ngIf="equipeForm.controls['nbrDesMembresMax'].touched && equipeForm.controls['nbrDesMembresMax'].hasError('required') ">
+            nbr Membres Max est <strong> requis</strong>
+       </mat-error>
+
+       <mat-error *ngIf="equipeForm.controls['nbrDesMembresMax'].touched && equipeForm.controls['nbrDesMembresMax'].hasError('max') ">
+        n° salle ne doit pas dépacer <strong>20</strong>
+    </mat-error>
+
+       <mat-error *ngIf="equipeForm.controls['nbrDesMembresMax'].touched && equipeForm.controls['nbrDesMembresMax'].hasError('min') ">
+        n° salle ne doit pas etre inf a <strong>2</strong>
+    </mat-error>
+
+        <mat-error *ngIf="equipeForm.controls['nbrDesMembresMax'].touched && equipeForm.controls['nbrDesMembresMax'].hasError('pattern') ">
+            n° salle doit etre <strong>numerique</strong>
+        </mat-error>
+
+       
+
+
+
+
+
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>Email equipe</mat-label>
+        <input  formControlName="mail" matInput placeholder="pat@example.com">
+        <mat-error *ngIf="equipeForm.controls['mail'].touched && equipeForm.controls['mail'].hasError('required') ">
+            Email est <strong> requis</strong>
+       </mat-error>
+
+       <mat-error *ngIf="equipeForm.controls['mail'].touched && equipeForm.controls['mail'].hasError('email') ">
+        Email doit etre sous cette format<strong> oussama.ghannay@exemple.com </strong>
+   </mat-error>
+      </mat-form-field>
+
+
+      
+        <mat-label>Logo equipe</mat-label>
+        <input type="file"  formControlName="logo"   placeholder="Logo" >
+
+
+        
+   
+
+
+     <div mat-dialog-actions [align]="'end'">
+
+        <button style="margin-right: 5px;" mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+
+        <button mat-raised-button color="primary"   [disabled]="!equipeForm.valid" (click)="addEquipe()"
+        
+        >{{actionButton}}</button>
+  
+
+     </div>
+
+
+
+     
+
+
+
+
+
+
+
+
+    </form>
+
+
+
+    
+
+
+
+   
+  
+</div>
+
+
+
+ 
+
+
+
+
+

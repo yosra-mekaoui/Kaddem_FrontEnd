@@ -1,0 +1,239 @@
+
+
+ <!-- AJOUT DETAILS EQUIPE--->
+    
+
+
+<div class="example-button-container" >
+    <button mat-mini-fab color="accent" (click)="goToListeEquipe()">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+</div>
+
+ 
+          
+ <div class="col-sm-12 col-md-6" style="margin: 20px; margin-left: 250px;" *ngIf="this.equipe.detaileq==null">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title" style="text-align: center; padding-bottom: 20px;">Ajouter details equipe</h1>
+
+
+            <form [formGroup]="detailsForm">
+                
+                    <div class="form-group">
+                        <label for="Salle">Salle*</label>
+                        <input type="number"  parsley-trigger="change" 
+                               placeholder="Enter une salle" class="form-control" formControlName="salle">
+
+                         <small style="color: red;"
+                            *ngIf="detailsForm.controls['salle'].touched && detailsForm.controls['salle'].hasError('required') ">
+                            salle est <strong> requis</strong>
+                        </small>
+
+                        <small style="color: red;"
+                        *ngIf="detailsForm.controls['salle'].touched && detailsForm.controls['salle'].hasError('max') ">
+                         n° salle ne doit pas dépacer <strong>200</strong>
+                         </small>
+
+                         <small style="color: red;"
+                           *ngIf="detailsForm.controls['salle'].touched && detailsForm.controls['salle'].hasError('min') ">
+                           n° salle ne doit pas etre inf a <strong>1</strong>
+                        </small>
+
+                        <small style="color: red;"
+                        *ngIf="detailsForm.controls['salle'].touched && detailsForm.controls['salle'].hasError('pattern') ">
+                        n° salle doit etre <strong>numerique</strong>
+                    </small>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Thematique">Thematique*</label>
+                        <input parsley-trigger="change" 
+                               placeholder="Enter une thematique" class="form-control" formControlName="thematique">
+
+                               <small style="color: red;"
+                                 *ngIf="detailsForm.controls['thematique'].touched && detailsForm.controls['thematique'].hasError('required') ">
+                                 thematique est <strong> requis</strong>
+                               </small>
+                               
+                               
+                               <small style="color: red;"
+                                 *ngIf="detailsForm.controls['thematique'].touched && detailsForm.controls['thematique'].hasError('pattern') ">
+                                 thematique doit contenir que des <strong>lettres</strong>
+                               </small> 
+
+
+                                <small style="color: red;"
+                                *ngIf="detailsForm.controls['thematique'].touched && detailsForm.controls['thematique'].hasError('minlength') ">
+                                thematique doit contenir au minimum <strong>3 lettres</strong>
+                                 </small> 
+
+                             
+                          </div>
+                    
+                    <div class="form-group">
+                            <label for="Commentaire">Commentaire*</label>
+                            <textarea class="form-control"  rows="3"  placeholder="Enter un commentaire" 
+                            formControlName="commentaire"></textarea>
+
+                            <small style="color: red;"
+                            *ngIf="detailsForm.controls['commentaire'].touched && detailsForm.controls['commentaire'].hasError('required') ">
+                            commentaire est <strong> requis</strong>
+                             </small>    
+                             
+
+                             <small style="color: red;"
+                            *ngIf="detailsForm.controls['commentaire'].touched && detailsForm.controls['commentaire'].hasError('minlength') ">
+                            commentaire doit contenir au minimum <strong>10 lettres</strong>
+                        </small>
+                         
+                            
+                            
+                    </div>
+
+
+                    <div class="form-group text-right m-b-0">
+                        <button class="btn btn-primary waves-effect waves-light"  style="margin-right: 5px;border-radius: 15px;"
+                          (click)="addDetailsEquipe()"
+                          [disabled]="!detailsForm.valid"
+                          [ngStyle]="{'background-color': !detailsForm.valid   ? '' : '#22ca80'  , 'color' : !detailsForm.valid ? 'black' : 'white'  }"
+
+                          
+                          > 
+                            Ajouter
+                        </button>
+                        <button type="reset" class="btn btn-secondary waves-effect waves-light m-l-5" style="border-radius: 15px;">
+                            Annuler
+                        </button>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+ 
+ 
+ 
+
+
+
+
+
+
+ <!--  DETAILS EQUIPE--->
+
+ <div class="col-sm-12 col-md-6" style="margin: 20px; margin-left: 250px;" *ngIf="this.equipe.detaileq">
+    <!-- Card -->
+    <div class="card">
+        <img class="card-img-top img-fluid" src="{{this.equipe.logo}} " alt="Card image cap">
+        <div class="card-body">
+            <p class="text-muted font-13 m-b-30">
+                {{this.equipe.detaileq.commentaire}} 
+           </p>
+
+           <br>
+            <h4 class="card-title">Equipe : </h4>
+
+
+            <div class="text-left">
+                <hr/>
+
+                <p class="text-muted font-13"><strong>Nom : </strong> <span class="m-l-15">{{this.equipe.nomEquipe}} </span></p>
+<hr/>
+                <p class="text-muted font-13"><strong>Niveau : </strong><span class="m-l-15">{{this.equipe.niveau}}</span></p>
+                <hr/>
+                <p class="text-muted font-13"><strong>Email : </strong> <span class="m-l-15">{{this.equipe.mail}}</span></p>
+                <hr/>
+                <p class="text-muted font-13"><strong>Nombre MAX : </strong> <span class="m-l-15">{{this.equipe.nbrDesMembresMax}}</span></p>
+            </div>
+
+
+           <br>
+
+
+            <h4 class="card-title">Details Equipe :</h4>
+
+
+            <div class="text-left">
+                <hr/>
+
+                <p class="text-muted font-13"><strong>Salle : </strong> <span class="m-l-15">{{this.equipe.detaileq.salle}}</span></p>
+                <hr/>
+                <p class="text-muted font-13"><strong>Thematique : </strong><span class="m-l-15">{{this.equipe.detaileq.thematique}}</span></p>
+                <hr/>
+
+
+
+
+
+                <div style="text-align:center">
+                    <h1>
+                      Ce QR Code montre plus de details sur cet equipe
+                    </h1>
+                  </div>
+                  
+                  <div class="container"> 
+
+                  <div class="row">
+                    <div class="col align-self-start">
+                    </div>
+
+                    <div class="col align-self-center">
+                 
+                  <ngx-qrcode 
+                    [elementType]="elementType" 
+                    [value]="value"
+                    cssClass="aclass"
+                    >
+                  </ngx-qrcode>
+                    </div>
+
+                    <div class="col align-self-end"></div>
+
+
+                </div>
+                  </div>
+
+
+
+
+
+            </div>
+            
+            <div    class="example-button-row" style="text-align:center ; padding-top: 20px;">
+            <button mat-raised-button    (click)="deleteDetailsEquipe(this.equipe.detaileq.idDetailEquipe)" 
+               type="button" class="btn btn-danger w-md waves-effect waves-light m-b-5" style="border-radius:15px;" color="warn">
+                <mat-icon>delete_forever</mat-icon>
+
+                <span style="padding-left: 7px;">Supprimer details equipe </span></button>
+            </div>
+
+
+             
+
+
+
+
+
+              
+    </div>
+    <!-- Card -->
+</div>
+
+
+
+
+ </div>
+
+
+ 
+
+
+
+
+
+
+
+ 
+
