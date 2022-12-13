@@ -1,0 +1,22 @@
+
+
+input:hover{
+    border: 1px solid blue;
+}
+
+
+textarea:hover{
+    border: 1px solid blue;
+}
+
+
+input.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+textarea.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+
+.aclass{
+    background-color: blue;
+}
