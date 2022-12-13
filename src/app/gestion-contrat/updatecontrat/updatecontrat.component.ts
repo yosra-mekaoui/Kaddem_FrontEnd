@@ -11,88 +11,29 @@ import {Specialite} from "../../Models/Specialite";
   styleUrls: ['./updatecontrat.component.css']
 })
 export class UpdatecontratComponent implements OnInit {
-  id = 0;
-  c!: Contrat;
-  specialite = Specialite;
-
-  Form !: FormGroup;
-
-
-  constructor(private contrat: FormBuilder, private contratService: ContratService, private route: ActivatedRoute,private router: Router
-  ) {
-  }
+  id!: number;
+  specialite =Specialite;
+  contrat: Contrat = new Contrat();
+  constructor(private contratService: ContratService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
-    this.Form  = this.contrat.group({
+    this.id = this.route.snapshot.params['idContrat'];
 
-      idContrat: [''],
-      dateDebutContrat: [''],
-      dateFinContrat: [''],
-      archive: [''],
-      montantContrat: [''],
-      specialite: ['']
-
-
-    });
-
-    this.contratService.getcontratById(this.route.snapshot.params['idContrat']).subscribe(data => {
-      this.c = data;
-      this.Form.patchValue({
-        idContrat: this.c.idContrat,
-        dateDebutContrat: this.c.dateDebutContrat,
-        dateFinContrat: this.c.dateFinContrat,
-        archive: this.c.archive,
-        montantContrat: this.c.montantContrat,
-        specialite: this.c.specialite
-      });
-
-
-    });
-
+    this.contratService.getcontratById(this.id).subscribe(data => {
+      this.contrat = data;
+    }, error => console.log(error));
   }
 
-  get idContrat() {
-    return this.Form.get('idContrat')
+  onSubmit(){
+    this.contratService.updatecontrat(this.id,this.contrat).subscribe( data =>{
+        this.goTocontratList();
+      }
+      , error => console.log(error));
   }
 
-  get dateDebutContrat() {
-    return this.Form.get('dateDebutContrat') as FormControl
+  goTocontratList(){
+    this.router.navigate(['/contrat/listContrat']);
   }
-
-  get dateFinContrat() {
-    return this.Form.get('dateFinContrat') as FormControl
-  }
-
-  get archive() {
-    return this.Form.get('archive') as FormControl
-  }
-
-  get montantContrat() {
-    return this.Form.get('montantContrat') as FormControl
-  }
-
-  get specialitee(){
-    return this.Form.get('specialite') as FormControl
-  }
-
-
-
-  onSubmit() {
-    this.setAttributes();
-    this.contratService.updatecontrat(this.c.idContrat, this.c).subscribe(data => {
-      console.log(data);
-      this.router.navigate(['/contrat/listContrat']);
-    });
-  }
-
-  setAttributes(){
-
-    this.c.archive = this.archive.value;
-    this.c.dateDebutContrat = this.dateDebutContrat.value;
-    this.c.dateFinContrat = this.dateFinContrat.value;
-    this.c.montantContrat = this.montantContrat.value;
-    this.c.specialite = this.specialitee.value;
-    console.log(this.c)
-  }
-
 }
