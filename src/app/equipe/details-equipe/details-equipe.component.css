@@ -20,3 +20,14 @@ textarea.ng-touched.ng-invalid{
 .aclass{
     background-color: blue;
 }
+
+
+
+.styleText{
+  font-size: 22px;
+  font-weight: 400;
+  color:  darkblue;
+ padding-left: 26px
+ 
+
+}

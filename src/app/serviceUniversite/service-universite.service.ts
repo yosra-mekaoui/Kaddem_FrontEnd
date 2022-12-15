@@ -8,18 +8,18 @@ import { universite } from '../Models/Universite';
   providedIn: 'root'
 })
 export class ServiceUniversiteService {
-  urlApi = 'http://localhost:8080/test/univer/all'; 
-  urlDel='http://localhost:8080/test/univer/delete/' ;
-  urlAdd='http://localhost:8080/test/univer/add' ;
-  addwithimage='http://localhost:8080/test/univer/addWithImage';
-  urlUpdate='http://localhost:8080/test/univer/update';
-  getbyid="http://localhost:8080/test/univer/get/"
-  urlgetmaxid='http://localhost:8080/test/univer/maxid';
-  relation='http://localhost:8080/test/dep/assignUniversiteToDepartement/';
-  listdepart='http://localhost:8080/test/univer/listdepart';
-  pagination='http://localhost:8080/test/univer/all?pageNumber='
-  getimage="http://localhost:8080/test/univer/ListImagebyIduniv/";
-  deleteImage="http://localhost:8080/test/univer/deleteImage/";
+  urlApi = 'http://localhost:8189/kaddem/univer/all'; 
+  urlDel='http://localhost:8189/kaddem/univer/delete/' ;
+  urlAdd='http://localhost:8189/kaddem/univer/add' ;
+  addwithimage='http://localhost:8189/kaddem/univer/addWithImage';
+  urlUpdate='http://localhost:8189/kaddem/univer/update';
+  getbyid="http://localhost:8189/kaddem/univer/get/"
+  urlgetmaxid='http://localhost:8189/kaddem/univer/maxid';
+  relation='http://localhost:8189/kaddem/dep/assignUniversiteToDepartement/';
+  listdepart='http://localhost:8189/kaddem/univer/listdepart';
+  pagination='http://localhost:8189/kaddem/univer/all?pageNumber='
+  getimage="http://localhost:8189/kaddem/univer/ListImagebyIduniv/";
+  deleteImage="http://localhost:8189/kaddem/univer/deleteImage/";
 d:any;
   Universite=[];
 

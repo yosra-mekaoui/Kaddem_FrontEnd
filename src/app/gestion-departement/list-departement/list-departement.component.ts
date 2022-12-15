@@ -34,8 +34,9 @@ libelle:string="";
     
   }
   add(){
-    this.R.navigate(['add'])
+    this.R.navigate(['/listDepar/add'])
   }
+
   DeleteDepart(id:number)
   {
    

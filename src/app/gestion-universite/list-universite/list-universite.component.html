@@ -30,7 +30,7 @@
                                 <th>ID</th>
                           
                                 <th>nom Universite</th>
-                          
+                                <th>nom Departement</th>
                                 <th>Action</th>
                           
                             </tr>
@@ -44,6 +44,9 @@
                                     <td>
                                         {{e.nomUniv}}
                                     </td>
+                                    <div *ngFor="let a of e.departements" >
+                                      <td>{{a.nomDepart}}</td>
+                                    </div>
                                     <td>
                                         <button
                                           mat-button

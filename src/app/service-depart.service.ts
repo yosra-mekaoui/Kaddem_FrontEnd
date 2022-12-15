@@ -6,11 +6,11 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ServiceDepartService {
-  urlApi = 'http://localhost:8080/test/dep/all'; 
-  urlDel='http://localhost:8080/test/dep/remove/' 
-  urlAdd='http://localhost:8080/test/dep/add' 
-  urlGetId='http://localhost:8080/test/dep/get/'
-  urlUpdate='http://localhost:8080/test/dep/updateDepar' // URL de l'API
+  urlApi = 'http://localhost:8189/kaddem/dep/all'; 
+  urlDel='http://localhost:8189/kaddem/dep/remove/' 
+  urlAdd='http://localhost:8189/kaddem/dep/add' 
+  urlGetId='http://localhost:8189/kaddem/dep/get/'
+  urlUpdate='http://localhost:8189/kaddem/dep/updateDepar' // URL de l'API
   Departement=[];
   constructor(private http: HttpClient) { }
 
